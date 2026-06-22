@@ -21,9 +21,9 @@ python -m http.server 8091 --directory public   # http://localhost:8091
 ```
 
 ## 이미지
-- `public/images/` — 클라이언트 네이버 블로그(fill2985)에서 받은 실제 작업 사진 12장.
-  - `drain-07`(스프링 릴) = 히어로 배경 / `toilet-05`(RIDGID 관통기)·`toilet-04`(CCTV 내시경)·`drain-07` = 장비 섹션
-  - 서비스 카드·갤러리에 분산 배치. `drain-02/04/06` 등은 블로거가 중앙 모자이크한 현장컷.
+- `public/images/` — 두 출처 혼합:
+  - **실사진(`drain-01,07` · `toilet-01~05`)**: 클라이언트 네이버 블로그(fill2985)에서 수집. `drain-07`(스프링 릴)=히어로 배경 / `toilet-05`(RIDGID)·`toilet-04`(CCTV)·`drain-07`=장비 섹션 / 변기·CCTV 등 서비스카드·갤러리.
+  - **무료 스톡(`stock-*` 5장, Pexels)**: 블로거 모자이크 현장컷을 대체. `stock-drainage`(하수구)·`stock-pipes`(화장실배관)·`stock-water`(우수관)=서비스카드 / `stock-sinkdrain`·`stock-splash`=갤러리. Pexels License(무료 상업이용·출처표기 불요).
 - 전화번호 `010-8287-2985` 는 클라이언트 작업트럭에 공개된 **실제 대표번호**(toilet-01 사진에서 확인).
 
 ## 주의
