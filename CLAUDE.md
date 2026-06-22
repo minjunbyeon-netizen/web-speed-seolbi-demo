@@ -16,6 +16,10 @@
 - 자간: 본문 -0.02em · 헤딩 -0.02em · 히어로 -0.03em (음수 표준). 행간: 본문 1.6 · 헤딩 1.2 · 히어로 1.1. 단일 box-shadow, 라운드 8px(--radius)
 - CDN: Pretendard Variable dynamic-subset (`cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9`). 옛 Black Han Sans·Noto Sans KR(Google Fonts)는 룰 §2.1 위반이라 2026-06-22 교체
 
+## 모바일 (반응형 1소스)
+- 별도 m.html 없음 — 단일 `index.html` 반응형(900px·680px 분기). 680px↓: 햄버거 내비·1열 그리드·하단 고정 콜바(전화/카톡 split)·FOMO 토스트 풀폭.
+- 모바일 마감 메타(2026-06-22): `theme-color #0c2f4a`(주소창 딥블루)·`apple-mobile-web-app-*`(홈화면 추가)·`viewport-fit=cover`·`apple-touch-icon`. 하단 콜바·FOMO·맨위로 버튼은 `env(safe-area-inset-bottom)`로 노치/홈인디케이터 회피.
+
 ## 로컬 미리보기
 ```bash
 python -m http.server 8091 --directory public   # http://localhost:8091
