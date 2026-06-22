@@ -31,7 +31,7 @@
 
   /* ---------- 스크롤 등장 ---------- */
   var revealTargets = document.querySelectorAll(
-    ".service-card, .why-item, .process-step, .review-card, .case-row, .area-inner, .section-head"
+    ".service-card, .why-item, .process-step, .price-card, .assure-item, .voice-card, .area-inner, .section-head"
   );
   revealTargets.forEach(function (el) { el.classList.add("reveal"); });
   if ("IntersectionObserver" in window) {
