@@ -66,6 +66,7 @@
         <li>당일·즉시 출동</li>
         <li>작업 후 재발 안내</li>
       </ul>
+      <p class="hero-scarcity"><span class="live-dot"></span>오늘 긴급출동 가능 <b>잔여 3팀</b> · 마감 임박</p>
     </div>
   </section>
 
@@ -382,6 +383,15 @@
     <a href="http://pf.kakao.com/_speedseolbi" target="_blank" rel="noopener" class="float-bar-kakao">카톡상담</a>
   </div>
   <a href="#hero" class="to-top" id="toTop" aria-label="맨 위로">↑</a>
+
+  <!-- ===== FOMO: 실시간 출동 토스트 (데모 — 가상 데이터) ===== -->
+  <div class="live-toast" id="liveToast" aria-live="polite" hidden>
+    <span class="live-dot"></span>
+    <div class="live-toast__body">
+      <strong class="live-toast__line"></strong>
+      <span class="live-toast__time"></span>
+    </div>
+  </div>
 
   <script src="main.js"></script>
 </body>

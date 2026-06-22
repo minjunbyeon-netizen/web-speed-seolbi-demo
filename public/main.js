@@ -87,4 +87,34 @@
       form.reset();
     });
   }
+
+  /* ---------- FOMO: 실시간 출동 토스트 (목업 — 가상 데이터) ---------- */
+  var toast = document.getElementById("liveToast");
+  if (toast) {
+    var lineEl = toast.querySelector(".live-toast__line");
+    var timeEl = toast.querySelector(".live-toast__time");
+    var feed = [
+      ["사하구 하단동", "하수구막힘", "방금 전"],
+      ["강서구 명지동", "변기막힘", "2분 전"],
+      ["김해 삼방동", "싱크대막힘", "5분 전"],
+      ["창원 성산구", "우수관 고압세척", "3분 전"],
+      ["양산 물금", "변기막힘", "방금 전"],
+      ["부산 사상구", "화장실 배관·냄새", "7분 전"],
+      ["진해 용원", "하수구막힘", "4분 전"],
+      ["장유 율하", "내시경 점검", "6분 전"],
+      ["부산 다대동", "싱크대막힘", "방금 전"]
+    ];
+    var fi = 0, hideTimer = null;
+    function showNextDispatch() {
+      var it = feed[fi % feed.length]; fi++;
+      lineEl.textContent = it[0] + " · " + it[1] + " 출동 접수";
+      timeEl.textContent = it[2] + " · 실시간 접수";
+      toast.hidden = false;
+      requestAnimationFrame(function () { toast.classList.add("show"); });
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () { toast.classList.remove("show"); }, 4500);
+    }
+    setTimeout(showNextDispatch, 3500);
+    setInterval(showNextDispatch, 9000);
+  }
 })();
