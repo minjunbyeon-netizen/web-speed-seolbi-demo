@@ -189,21 +189,27 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
 .process-step p { font-size: 14px; color: var(--muted); }
 
 /* ===================================================================
-   GALLERY
+   GALLERY — 현장 한마디 9곳 (writeplz 패턴)
    =================================================================== */
-.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
-.gallery-item { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; background: var(--blue-900); }
-.gallery-item.gallery-wide { grid-column: span 2; aspect-ratio: 8 / 3; }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
-.gallery-item:hover img { transform: scale(1.06); }
-.gallery-item figcaption {
-  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
-  padding: 28px 20px 16px; color: #fff; font-weight: 700; font-size: 15px; letter-spacing: -0.02em;
-  background: linear-gradient(to top, rgba(8,28,44,0.92), rgba(8,28,44,0));
-  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+.head-muted { color: var(--muted); font-weight: 400; }
+.voices-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+.voice-card {
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden; display: flex; flex-direction: column;
+  transition: box-shadow .25s ease, transform .2s ease, border-color .25s ease;
 }
-.g-tag { font-size: 12px; font-weight: 700; color: #fff; background: var(--orange); padding: 4px 10px; border-radius: 4px; }
-.cases-note { margin-top: 18px; font-size: 13px; color: var(--muted-lt); }
+.voice-card:hover { border-color: var(--blue-500); box-shadow: var(--shadow); transform: translateY(-4px); }
+.vc-media { aspect-ratio: 16 / 9; background: var(--blue-900); display: flex; align-items: center; justify-content: center; padding: 16px; position: relative; }
+.vc-region { font-family: var(--display); font-size: 30px; font-weight: 900; color: #fff; letter-spacing: -0.03em; line-height: 1.1; text-align: center; }
+.voice-card[data-tone="a"] .vc-media, .voice-card[data-tone="d"] .vc-media, .voice-card[data-tone="g"] .vc-media { background: var(--blue-900); }
+.voice-card[data-tone="b"] .vc-media, .voice-card[data-tone="e"] .vc-media, .voice-card[data-tone="h"] .vc-media { background: var(--blue-800); }
+.voice-card[data-tone="c"] .vc-media, .voice-card[data-tone="f"] .vc-media, .voice-card[data-tone="i"] .vc-media { background: var(--blue-700); }
+.vc-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.vc-quote { font-size: 17px; font-weight: 700; line-height: 1.45; color: var(--blue-900); letter-spacing: -0.02em; word-break: keep-all; margin: 0; }
+.vc-meta { display: flex; gap: 7px; margin-top: auto; flex-wrap: wrap; }
+.vc-chip { font-size: 12px; font-weight: 700; color: var(--blue-700); border: 1px solid var(--line); background: var(--mist); padding: 4px 10px; border-radius: 4px; letter-spacing: -0.02em; white-space: nowrap; }
+.vc-chip--n { color: #fff; background: var(--orange); border-color: var(--orange); }
+.cases-note { margin-top: 24px; font-size: 13px; color: var(--muted-lt); text-align: center; }
 
 /* ===================================================================
    AREA
@@ -321,8 +327,7 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
    RESPONSIVE
    =================================================================== */
 @media (max-width: 900px) {
-  .card-grid, .review-grid, .equip-grid, .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-item.gallery-wide { grid-column: span 2; aspect-ratio: 16 / 7; }
+  .card-grid, .review-grid, .equip-grid, .voices-grid { grid-template-columns: repeat(2, 1fr); }
   .process-grid { grid-template-columns: repeat(2, 1fr); }
   .why-grid { grid-template-columns: 1fr; }
   .area-inner { grid-template-columns: 1fr; gap: 28px; }
@@ -351,8 +356,7 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
   .nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-toggle.active span:nth-child(2) { opacity: 0; }
   .nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  .card-grid, .review-grid, .equip-grid, .process-grid, .gallery-grid { grid-template-columns: 1fr; }
-  .gallery-item.gallery-wide { grid-column: span 1; aspect-ratio: 4 / 3; }
+  .card-grid, .review-grid, .equip-grid, .process-grid, .voices-grid { grid-template-columns: 1fr; }
   .contact-form { grid-template-columns: 1fr; }
   .area-list { grid-template-columns: 1fr; }
   .hero { padding: 84px 0 72px; }
