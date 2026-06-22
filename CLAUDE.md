@@ -12,8 +12,9 @@
 
 ## 디자인 토큰 (본사 룰 준수)
 - 색: 딥블루 `#0c2f4a` · 오렌지 CTA `#f26419` · 미스트 `#f3f6f9`
-- 폰트: Black Han Sans(임팩트 헤드라인·숫자) + Noto Sans KR(본문). Pretendard·그라디언트·이모지·pill 미사용
-- 한글 자간 음수, 단일 box-shadow, 라운드 6px
+- 폰트: **Pretendard Variable 1종**(본사 룰 design-block §2.1 강제 · 프리셋 C 마케팅). 임팩트 숫자·히어로=weight 900, 헤딩=800, 강조=700, 본문=400. 500/600 미사용. 그라디언트·이모지·pill 미사용
+- 자간: 본문 -0.02em · 헤딩 -0.02em · 히어로 -0.03em (음수 표준). 행간: 본문 1.6 · 헤딩 1.2 · 히어로 1.1. 단일 box-shadow, 라운드 8px(--radius)
+- CDN: Pretendard Variable dynamic-subset (`cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9`). 옛 Black Han Sans·Noto Sans KR(Google Fonts)는 룰 §2.1 위반이라 2026-06-22 교체
 
 ## 로컬 미리보기
 ```bash
