@@ -484,8 +484,9 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
   .vc-body { order: 1; padding: 14px 16px; gap: 11px; }
   .vc-media {
     order: 2; aspect-ratio: auto; height: 152px; margin: 0 16px 16px;
-    border-radius: 8px; background: var(--mist);
+    border-radius: 8px; background: var(--line);   /* 로딩 중 흰 박스 대신 중립 플레이스홀더 */
   }
+  .vc-img { background: var(--line); }
   .vc-media::after { display: none; }   /* 다크 오버레이 제거 — 사진 선명 */
   .vc-region { display: none; }          /* 지역명은 닉네임으로 이동 */
 
