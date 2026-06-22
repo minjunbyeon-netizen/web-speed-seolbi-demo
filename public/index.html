@@ -384,13 +384,17 @@
   </div>
   <a href="#hero" class="to-top" id="toTop" aria-label="맨 위로">↑</a>
 
-  <!-- ===== FOMO: 실시간 출동 토스트 (데모 — 가상 데이터) ===== -->
+  <!-- ===== FOMO: 실시간 출동 토스트 + 누적 카운터 (데모 — 가상 데이터) ===== -->
   <div class="live-toast" id="liveToast" aria-live="polite" hidden>
     <span class="live-dot"></span>
     <div class="live-toast__body">
       <strong class="live-toast__line"></strong>
       <span class="live-toast__time"></span>
     </div>
+  </div>
+  <div class="live-counter" id="liveCounter" aria-hidden="true">
+    <span class="live-dot"></span>
+    <span>오늘 출동 <b id="liveCount">43</b>건 진행중</span>
   </div>
 
   <script src="main.js"></script>

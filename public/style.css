@@ -132,7 +132,7 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
 .hero-scarcity b { color: #ffb284; font-weight: 700; }
 
 .live-toast {
-  position: fixed; left: 20px; bottom: 24px; z-index: 58;
+  position: fixed; left: 20px; bottom: 78px; z-index: 58;
   display: flex; align-items: center; gap: 12px;
   background: var(--paper); border: 1px solid var(--line); border-left: 3px solid var(--orange);
   border-radius: var(--radius); box-shadow: var(--shadow);
@@ -143,6 +143,15 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
 .live-toast__body { display: flex; flex-direction: column; gap: 3px; }
 .live-toast__line { font-size: 14px; font-weight: 700; color: var(--blue-900); letter-spacing: -0.02em; line-height: 1.35; }
 .live-toast__time { font-size: 12px; color: var(--muted); letter-spacing: -0.02em; }
+
+.live-counter {
+  position: fixed; left: 20px; bottom: 24px; z-index: 57;
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--blue-900); color: #fff;
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 10px 16px; font-size: 13px; font-weight: 700; letter-spacing: -0.02em;
+}
+.live-counter b { color: #ffb284; font-weight: 700; font-variant-numeric: tabular-nums; }
 
 /* ===================================================================
    MARQUEE
@@ -383,7 +392,8 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
   .assure-grid { grid-template-columns: 1fr; }
   .float-stack { display: none; }
   .float-bar { display: flex; }
-  .live-toast { left: 12px; right: 12px; bottom: 66px; max-width: none; }
+  .live-counter { left: 12px; bottom: 66px; }
+  .live-toast { left: 12px; right: 12px; bottom: 116px; max-width: none; }
   .hero-scarcity { width: 100%; justify-content: center; }
   .to-top { bottom: 70px; }
   body { padding-bottom: 56px; }

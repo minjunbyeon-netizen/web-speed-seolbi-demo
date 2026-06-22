@@ -104,6 +104,7 @@
       ["장유 율하", "내시경 점검", "6분 전"],
       ["부산 다대동", "싱크대막힘", "방금 전"]
     ];
+    var countEl = document.getElementById("liveCount");
     var fi = 0, hideTimer = null;
     function showNextDispatch() {
       var it = feed[fi % feed.length]; fi++;
@@ -113,6 +114,7 @@
       requestAnimationFrame(function () { toast.classList.add("show"); });
       clearTimeout(hideTimer);
       hideTimer = setTimeout(function () { toast.classList.remove("show"); }, 4500);
+      if (countEl) countEl.textContent = String(parseInt(countEl.textContent, 10) + 1);
     }
     setTimeout(showNextDispatch, 3500);
     setInterval(showNextDispatch, 9000);
