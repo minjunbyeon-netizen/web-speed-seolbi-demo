@@ -398,3 +398,62 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
   .to-top { right: 16px; bottom: calc(70px + env(safe-area-inset-bottom)); }
   body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
 }
+
+/* ===================================================================
+   모바일 컴팩트 — 세로 길이 축소 (PC 무영향, ≤680px 만)
+   =================================================================== */
+@media (max-width: 680px) {
+  :root { --gap: 14px; }
+
+  .section { padding: 40px 0; }
+  .section-head { margin-bottom: 22px; }
+  .section-head h2 { margin: 8px 0 8px; }
+  .section-desc { font-size: 15px; }
+
+  .hero { padding: 52px 0 44px; }
+  .hero-title { margin-bottom: 14px; }
+  .hero-sub { margin-bottom: 22px; font-size: 16px; }
+  .hero-actions { gap: 10px; margin-bottom: 20px; }
+  .hero-badges { gap: 8px 18px; }
+  .hero-badges li { font-size: 14px; }
+  .hero-scarcity { margin-top: 14px; }
+  .eyebrow { margin-bottom: 14px; }
+  .btn { height: 50px; }
+  .btn-big { height: 54px; font-size: 16px; }
+
+  .marquee-track { padding: 10px 0; }
+  .stat { padding: 22px 12px; }
+
+  .service-img { aspect-ratio: 16 / 9; }
+  .service-body { padding: 16px 18px 18px; }
+  .service-body h3 { font-size: 19px; margin-bottom: 6px; }
+
+  .equip-grid { margin-bottom: 28px; }
+  .equip-card img { aspect-ratio: 16 / 9; }
+  .equip-card figcaption { padding: 15px 18px 17px; }
+  .why-grid { gap: 12px; }
+  .why-item { padding: 15px 16px; }
+
+  .process-step { padding: 20px 20px; }
+  .process-step h3 { margin: 12px 0 6px; }
+
+  .pricing-grid { gap: 12px; }
+  .price-card { padding: 22px 20px; }
+  .price-amt { font-size: 32px; margin-bottom: 10px; }
+  .assure-grid { gap: 12px; margin-top: 24px; }
+  .assure-item { padding: 16px 18px; }
+
+  .voices-grid { gap: 12px; }
+  .vc-media { aspect-ratio: 2 / 1; }
+  .vc-body { padding: 15px 18px 17px; gap: 10px; }
+  .vc-quote { font-size: 16px; }
+  .cases-note { margin-top: 16px; }
+
+  .area-list { gap: 8px; }
+  .area-list li { padding: 13px 18px 13px 36px; }
+
+  .contact-head { margin-bottom: 26px; }
+  .contact-form { gap: 14px; }
+
+  .footer-inner { padding: 34px 0; gap: 22px; }
+}
