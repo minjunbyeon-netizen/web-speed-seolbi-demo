@@ -245,6 +245,7 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
 .vc-chip { font-size: 12px; font-weight: 700; color: var(--blue-700); border: 1px solid var(--line); background: var(--mist); padding: 4px 10px; border-radius: 4px; letter-spacing: -0.02em; white-space: nowrap; }
 .vc-chip--n { color: #fff; background: var(--orange); border-color: var(--orange); }
 .cases-note { margin-top: 24px; font-size: 13px; color: var(--muted-lt); text-align: center; }
+.vc-review { display: none; } /* 데스크톱: 이미지 카드 / 모바일에서만 네이버 리뷰 헤더 노출 */
 
 /* ===================================================================
    AREA
@@ -456,4 +457,61 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
   .contact-form { gap: 14px; }
 
   .footer-inner { padding: 34px 0; gap: 22px; }
+}
+
+/* ===================================================================
+   모바일 — 작업과정 초압축(한 줄 행) + 9곳 한마디 네이버 리뷰 스타일
+   =================================================================== */
+@media (max-width: 680px) {
+  /* ---- PROCESS: 카드 → 컴팩트 행 ---- */
+  .process .section-head { margin-bottom: 16px; }
+  .process-grid { gap: 8px; }
+  .process-step {
+    display: grid; grid-template-columns: 34px 1fr; column-gap: 12px; row-gap: 2px;
+    align-items: start; padding: 12px 14px;
+  }
+  .process-step .step-no { grid-row: 1 / span 2; width: 34px; height: 34px; font-size: 15px; border-radius: 7px; }
+  .process-step h3 { font-size: 16px; margin: 1px 0 0; align-self: center; }
+  .process-step:has(p) h3 { align-self: start; }
+  .process-step p { font-size: 13px; line-height: 1.45; margin: 0; color: var(--muted); }
+
+  /* ---- VOICES: 네이버 리뷰 카드 ---- */
+  .voices-grid { gap: 10px; }
+  .voice-card { flex-direction: column; border-radius: 10px; box-shadow: none; }
+  .voice-card:hover { transform: none; box-shadow: none; border-color: var(--line); }
+  .voice-card:hover .vc-img { transform: none; }
+
+  .vc-body { order: 1; padding: 14px 16px; gap: 11px; }
+  .vc-media {
+    order: 2; aspect-ratio: auto; height: 152px; margin: 0 16px 16px;
+    border-radius: 8px; background: var(--mist);
+  }
+  .vc-media::after { display: none; }   /* 다크 오버레이 제거 — 사진 선명 */
+  .vc-region { display: none; }          /* 지역명은 닉네임으로 이동 */
+
+  .vc-review { display: flex; align-items: center; gap: 10px; }
+  .vc-avatar {
+    width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+    display: grid; place-items: center; background: var(--blue-700); color: #fff;
+    font-family: var(--display); font-weight: 800; font-size: 16px; letter-spacing: -0.03em;
+  }
+  .voice-card[data-tone="b"] .vc-avatar, .voice-card[data-tone="e"] .vc-avatar, .voice-card[data-tone="h"] .vc-avatar { background: var(--blue-800); }
+  .voice-card[data-tone="c"] .vc-avatar, .voice-card[data-tone="f"] .vc-avatar, .voice-card[data-tone="i"] .vc-avatar { background: var(--blue-500); }
+  .vc-rv-id { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
+  .vc-rv-name { font-size: 14px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+  .vc-stars { font-size: 13px; color: var(--orange); letter-spacing: 2px; line-height: 1; }
+  .vc-stars .s-off { color: var(--line); }
+  .vc-rv-date { font-size: 12px; color: var(--muted-lt); flex-shrink: 0; align-self: flex-start; letter-spacing: -0.02em; }
+
+  .vc-quote { font-size: 15px; font-weight: 400; color: var(--ink); line-height: 1.55; }
+  .vc-meta { gap: 6px; }
+  .vc-chip, .vc-chip--n {
+    color: var(--muted); background: var(--mist); border-color: var(--line);
+    border-radius: 999px; padding: 6px 12px 6px 25px; font-weight: 700; position: relative;
+  }
+  .vc-chip::before, .vc-chip--n::before {
+    content: ""; position: absolute; left: 11px; top: 48%; width: 8px; height: 5px;
+    border-left: 2px solid var(--orange); border-bottom: 2px solid var(--orange);
+    transform: translateY(-70%) rotate(-45deg);
+  }
 }
