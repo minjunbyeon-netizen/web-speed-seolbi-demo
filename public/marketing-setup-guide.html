@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>스피드설비 — 설치 가이드(부록, 담당자용)</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+  :root{
+    --navy:#0c2f4a; --aqua:#0fa9cc; --aqua-dk:#0b88a3; --aqua-lt:#e3f6fb;
+    --orange:#f26419; --orange-lt:#fdeee6; --ink:#1a2230; --muted:#5f6b7a; --muted-lt:#9aa6b4;
+    --line:#e3e8ee; --mist:#f3f6f9; --paper:#fff; --green:#1c7d3e; --green-lt:#eafaf1;
+    --code:#0e2536;
+    --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+    --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--sans);color:var(--ink);background:var(--mist);line-height:1.7;letter-spacing:-0.02em;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+
+  .doc-head{background:var(--navy);color:#fff;padding:46px 0 40px;}
+  .doc-head .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.16em;color:var(--aqua);margin-bottom:12px;}
+  .doc-head h1{font-size:clamp(24px,4.5vw,33px);font-weight:800;line-height:1.25;letter-spacing:-0.03em;margin-bottom:12px;}
+  .doc-head p{font-size:15px;color:rgba(255,255,255,0.82);max-width:680px;}
+  .back{display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:var(--aqua);text-decoration:none;}
+
+  section{padding:34px 0;}
+  .sec-label{font-size:12px;font-weight:700;letter-spacing:0.16em;color:var(--aqua-dk);margin-bottom:8px;}
+  .sec-title{font-size:22px;font-weight:800;letter-spacing:-0.03em;color:var(--navy);margin-bottom:8px;}
+  .sec-desc{font-size:14.5px;color:var(--muted);margin-bottom:20px;max-width:680px;}
+
+  .panel{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px 24px;box-shadow:0 6px 20px rgba(12,47,74,0.05);}
+
+  /* 체크리스트 */
+  .check{list-style:none;display:flex;flex-direction:column;gap:11px;}
+  .check li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;}
+  .check .box{flex-shrink:0;width:18px;height:18px;border:2px solid var(--aqua);border-radius:5px;margin-top:3px;}
+  .check b{color:var(--navy);font-weight:700;}
+  .check .req{display:inline-block;font-size:11px;font-weight:700;color:var(--orange);background:var(--orange-lt);border:1px solid #fbd9c6;border-radius:999px;padding:2px 9px;margin-left:6px;}
+  .check .who{display:inline-block;font-size:11px;font-weight:700;color:var(--aqua-dk);background:var(--aqua-lt);border:1px solid #cdeef6;border-radius:999px;padding:2px 9px;margin-left:6px;}
+
+  table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14px;box-shadow:0 6px 20px rgba(12,47,74,0.05);}
+  th,td{text-align:left;padding:12px 15px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:var(--navy);color:#fff;font-weight:700;font-size:13px;}
+  tr:last-child td{border-bottom:0;}
+  td b{color:var(--navy);}
+
+  /* 스텝 */
+  .step{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 5px 16px rgba(12,47,74,0.045);margin-bottom:14px;}
+  .step.key{border-left:4px solid var(--orange);background:#fffaf7;}
+  .step-h{display:flex;align-items:flex-start;gap:13px;margin-bottom:12px;}
+  .step-n{flex-shrink:0;width:34px;height:34px;border-radius:9px;background:var(--aqua);color:#fff;display:grid;place-items:center;font-size:15px;font-weight:800;}
+  .step.key .step-n{background:var(--orange);}
+  .step-h h3{font-size:17px;font-weight:800;color:var(--navy);letter-spacing:-0.03em;line-height:1.3;}
+  .meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:7px;}
+  .m{font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 10px;letter-spacing:-0.02em;}
+  .m.lv{color:var(--aqua-dk);background:var(--aqua-lt);border:1px solid #cdeef6;}
+  .m.lv.mid{color:#8a5a00;background:#fff5e0;border:1px solid #f3dca0;}
+  .m.lv.hi{color:var(--orange);background:var(--orange-lt);border:1px solid #fbd9c6;}
+  .m.t{color:var(--muted);background:var(--mist);border:1px solid var(--line);}
+  .m.who{color:var(--green);background:var(--green-lt);border:1px solid #bce8cd;}
+  ol.do{margin:6px 0 0 2px;padding-left:20px;display:flex;flex-direction:column;gap:7px;font-size:14px;}
+  ol.do li{padding-left:3px;}
+  ol.do code,p code,.inline{font-family:var(--mono);font-size:12.5px;background:#eef3f7;color:var(--code);padding:2px 6px;border-radius:5px;letter-spacing:0;}
+  .tip{margin-top:11px;font-size:13px;color:var(--muted);background:var(--mist);border-radius:9px;padding:11px 14px;}
+  .tip b{color:var(--navy);font-weight:700;}
+  .warn{margin-top:11px;font-size:13px;color:#8a3b12;background:var(--orange-lt);border:1px solid #fbd9c6;border-radius:9px;padding:11px 14px;}
+  .warn b{color:var(--orange);font-weight:800;}
+
+  .note{font-size:12.5px;color:var(--muted-lt);margin-top:16px;}
+  .doc-foot{background:var(--navy);color:rgba(255,255,255,0.7);padding:30px 0;font-size:13px;}
+  .doc-foot b{color:#fff;} .doc-foot a{color:var(--aqua);text-decoration:none;}
+
+  @media print{ body{background:#fff;} .panel,table,.step{box-shadow:none;} section{padding:18px 0;} .doc-head,.doc-foot{-webkit-print-color-adjust:exact;print-color-adjust:exact;} }
+</style>
+</head>
+<body>
+
+<header class="doc-head">
+  <div class="wrap">
+    <span class="tag">설치 가이드 · 부록 (담당자/개발자용)</span>
+    <h1>실제로 어디 들어가서<br />무엇을 누르나 — 단계별 설치</h1>
+    <p>이 문서는 사장님용이 아니라 <b>실제로 설치하는 사람(마케팅 담당·개발자)</b>을 위한 작업 지시서입니다. 어디에 로그인해 무엇을 클릭하는지, 난이도와 예상 시간, 누가 하는지를 적었습니다.</p>
+    <a class="back" href="marketing-report.html">← 사장님용 설명서로 돌아가기</a>
+  </div>
+</header>
+
+<!-- 준비물 -->
+<section style="padding-top:30px;">
+  <div class="wrap">
+    <p class="sec-label">먼저 모으기</p>
+    <h2 class="sec-title">시작 전 준비물 체크리스트</h2>
+    <p class="sec-desc">이게 없으면 1단계부터 막힙니다. 작업 첫날 이것부터 모으십시오.</p>
+    <div class="panel">
+      <ul class="check">
+        <li><span class="box"></span><div><b>회사 공용 구글 계정</b> 1개 <span class="req">필수</span><span class="who">담당자</span><br /><span style="color:var(--muted);font-size:13.5px;">GA4·GTM·서치콘솔·구글광고를 전부 이 계정으로 묶습니다. 개인 지메일로 하면 퇴사 시 날아갑니다.</span></div></li>
+        <li><span class="box"></span><div><b>홈페이지 소스 수정 권한 또는 개발자 연락처</b> <span class="req">제일 중요</span><span class="who">개발자</span><br /><span style="color:var(--muted);font-size:13.5px;">이 사이트는 GitHub Pages라 코드를 직접 심어야 합니다. repo 접근 권한이 있는 사람이 필요합니다.</span></div></li>
+        <li><span class="box"></span><div><b>마이크로소프트 계정</b> (클래리티용) <span class="who">담당자</span></div></li>
+        <li><span class="box"></span><div><b>사업자등록증 + 사업자 카드</b> <span class="who">사장님 결재</span><br /><span style="color:var(--muted);font-size:13.5px;">3단계 광고(구글·메타·네이버) 계정 인증·결제에만 필요. 1·2단계엔 불필요합니다.</span></div></li>
+        <li><span class="box"></span><div><b>측정 대상이 사이트에 실제 있는지 확인</b> <span class="req">전제</span><br /><span style="color:var(--muted);font-size:13.5px;">전화 버튼(<code>tel:</code>), 카톡 버튼(<code>pf.kakao.com</code>), 견적 신청서가 실제로 달려 있어야 셀 수 있습니다.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- R&R -->
+<section style="padding-top:6px;">
+  <div class="wrap">
+    <p class="sec-label">역할 한눈에</p>
+    <h2 class="sec-title">누가 무엇을 하나 (R&R)</h2>
+    <table>
+      <thead><tr><th>역할</th><th>맡는 일</th></tr></thead>
+      <tbody>
+        <tr><td><b>개발자</b></td><td>GTM·GA4·클래리티 코드를 사이트에 심기, 광고 픽셀 심기 (코드 작업 전부)</td></tr>
+        <tr><td><b>마케팅 담당</b></td><td>GTM 안에서 트리거·태그 만들기, GA4 전환 설정, 보고서 정리, 광고 세팅</td></tr>
+        <tr><td><b>사장님</b></td><td>월 1회 보고서 확인, 광고 계속 여부·하루 상한 결정 (결재만)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 단계 -->
+<section style="padding-top:6px;">
+  <div class="wrap">
+    <p class="sec-label">실행 순서</p>
+    <h2 class="sec-title">단계별 클릭 동선</h2>
+    <p class="sec-desc">위에서 아래로 순서대로 합니다. 1·2단계만 깔아도 측정은 시작됩니다. 광고(5)는 선택입니다.</p>
+
+    <!-- 1 -->
+    <div class="step">
+      <div class="step-h"><span class="step-n">1</span><div><h3>측정 토대 — GA4 + GTM 설치</h3>
+        <div class="meta"><span class="m lv mid">난이도 중</span><span class="m t">약 40분</span><span class="m who">담당자 + 개발자</span></div></div></div>
+      <ol class="do">
+        <li><code>analytics.google.com</code> 접속 → 공용 구글 계정 로그인 → <b>속성 만들기</b>(웹) → 측정 ID <code>G-XXXXXXX</code> 발급.</li>
+        <li><code>tagmanager.google.com</code> → <b>컨테이너 만들기</b>(웹) → 코드 2조각(<code>&lt;head&gt;</code>용·<code>&lt;body&gt;</code> 바로 뒤용) 발급.</li>
+        <li><b>개발자에게 요청</b>: 이 2조각을 사이트 모든 페이지에 심어달라(GitHub Pages면 <code>public/index.html</code> 등).</li>
+        <li>GTM 안에서 <b>태그 새로 만들기 → "Google 애널리틱스: GA4 구성"</b> → 위 측정 ID 입력 → 트리거 <code>All Pages</code> → 저장 → <b>제출(게시)</b>.</li>
+      </ol>
+      <div class="tip"><b>확인</b> · GA4 '실시간' 보고서에 내 접속이 1명으로 잡히면 성공입니다.</div>
+    </div>
+
+    <!-- 2 -->
+    <div class="step key">
+      <div class="step-h"><span class="step-n">2</span><div><h3>전화·카톡 버튼 클릭 측정 ★ 핵심</h3>
+        <div class="meta"><span class="m lv mid">난이도 중</span><span class="m t">약 30분</span><span class="m who">담당자</span></div></div></div>
+      <ol class="do">
+        <li>GTM → <b>변수</b> → 기본 제공 변수 중 <code>Click URL</code> 체크(켜기).</li>
+        <li><b>트리거 만들기</b> → "클릭 - 링크만(Just Links)" → "일부 링크 클릭" → 조건 <code>Click URL</code> <b>포함</b> <code>tel:</code> (전화용). 같은 방식으로 <code>pf.kakao.com</code>(카톡용) 트리거 하나 더.</li>
+        <li><b>태그 만들기</b> → "GA4 이벤트" → 이벤트 이름 <code>call_click</code> / <code>kakao_click</code> → 위 트리거 연결 → 제출.</li>
+        <li>GA4 → <b>관리 → 이벤트 → 전환으로 표시</b>에서 <code>call_click</code>·<code>kakao_click</code>을 켭니다.</li>
+      </ol>
+      <div class="tip"><b>전화·카톡은 한 번에</b> 같이 세팅합니다(보고서 5·6번이 같은 작업). 따로 두 번 하지 않습니다.</div>
+    </div>
+
+    <!-- 3 -->
+    <div class="step key">
+      <div class="step-h"><span class="step-n">3</span><div><h3>견적 신청서 제출 측정 ★ 핵심</h3>
+        <div class="meta"><span class="m lv hi">난이도 상</span><span class="m t">30~60분</span><span class="m who">담당자 + 개발자</span></div></div></div>
+      <ol class="do">
+        <li>먼저 폼이 <b>실제로 제출되는지</b> 확인. 제출 후 "감사합니다" 페이지가 뜨면 → 그 페이지 도착을 GA4 전환으로.</li>
+        <li>같은 화면에서 처리되면 → 개발자에게 <b>제출 성공 시 <code>dataLayer.push(&#123;event:'lead_submit'&#125;)</code> 한 줄 추가</b> 요청 → GTM에서 맞춤 이벤트 트리거 <code>lead_submit</code> → GA4 이벤트 태그 → 전환 표시.</li>
+      </ol>
+      <div class="warn"><b>이 사이트 주의</b> · 현재 견적 폼은 데모라 실제 전송이 안 됩니다. 측정 전에 <b>폼을 실제 접수(메일·DB·카톡 전송)되게 먼저 연결</b>해야 합니다.</div>
+    </div>
+
+    <!-- 4 -->
+    <div class="step">
+      <div class="step-h"><span class="step-n">4</span><div><h3>검색어(서치콘솔) + 히트맵(클래리티)</h3>
+        <div class="meta"><span class="m lv mid">난이도 중</span><span class="m t">약 30분</span><span class="m who">담당자 + 개발자</span></div></div></div>
+      <ol class="do">
+        <li><b>서치콘솔</b>: <code>search.google.com/search-console</code> → 사이트 등록 → <b>소유권 인증</b>(HTML 파일 업로드 또는 DNS, 개발자 도움) → GA4와 연결하면 검색어가 GA4에서 보입니다.</li>
+        <li><b>클래리티</b>: <code>clarity.microsoft.com</code> → 프로젝트 생성 → 추적 코드 발급 → 개발자에게 사이트에 심어달라 요청. (GTM으로도 심을 수 있음)</li>
+      </ol>
+      <div class="tip"><b>완전 무료</b> · 클래리티는 방문 수 제한 없이 무료입니다.</div>
+    </div>
+
+    <!-- 5 -->
+    <div class="step">
+      <div class="step-h"><span class="step-n">5</span><div><h3>(선택) 광고 전환 연동 + 리타게팅</h3>
+        <div class="meta"><span class="m lv hi">난이도 상</span><span class="m t">반나절+</span><span class="m who">담당자 + 사장님 결재</span></div></div></div>
+      <ol class="do">
+        <li>구글광고/메타/네이버 각각 <b>광고 계정 생성 → 사업자·카드 인증</b>.</li>
+        <li>각 플랫폼 <b>전환추적 픽셀</b>을 사이트에 심기(개발자) → 전화·견적 전환을 광고와 연결.</li>
+        <li>리타게팅: 방문자 모수(쿠키 기반)를 만들어 <b>전화 안 한 방문자</b>에게 배너 재노출. <b>하루 예산 상한</b>을 반드시 설정.</li>
+      </ol>
+      <div class="warn"><b>예산 안전장치</b> · 각 광고 계정에서 '하루 한도'를 먼저 걸어두십시오. 안 걸면 자동 입찰이 예산을 빠르게 소진합니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 점검 -->
+<section style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <p class="sec-label">설치 후</p>
+    <h2 class="sec-title">잘되고 있는지 — 합격선</h2>
+    <table>
+      <thead><tr><th>지표</th><th>보통(합격선)</th><th>밑돌면</th></tr></thead>
+      <tbody>
+        <tr><td><b>방문 → 전화·신청 전환율</b></td><td>방문 100명당 3~5건</td><td>광고가 아니라 <b>사이트 문구·버튼</b>부터 손봄(보고서 8·9번)</td></tr>
+        <tr><td><b>실시간 측정 작동</b></td><td>GA4 실시간에 내 접속·클릭이 잡힘</td><td>코드 심기/게시(제출) 누락 점검</td></tr>
+        <tr><td><b>전환 표시</b></td><td>call_click·lead_submit이 전환으로 집계</td><td>GA4 '전환으로 표시' 토글 확인</td></tr>
+      </tbody>
+    </table>
+    <p class="note">개선(8·9번)을 한 뒤에는 <b>고치기 전/후의 전환율을 다시 비교</b>하십시오. 한 번 보고 끝내지 않고, 바꾼 게 효과 있었는지 숫자로 확인하는 것이 핵심입니다.</p>
+  </div>
+</section>
+
+<footer class="doc-foot">
+  <div class="wrap">
+    <p><b>스피드설비 — 설치 가이드(부록, 담당자용)</b> · 부산·경남 배관설비</p>
+    <p style="margin-top:6px;"><a href="marketing-report.html">← 사장님용 설명서</a> · 본 문서는 내부 검토용입니다.</p>
+  </div>
+</footer>
+
+</body>
+</html>
