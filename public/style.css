@@ -275,6 +275,9 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
 .vc-quote { position: relative; font-size: 16px; font-weight: 700; line-height: 1.5; color: var(--blue-900); letter-spacing: -0.02em; word-break: keep-all; margin: 0; padding-top: 20px; }
 .vc-quote::before { content: "\201C"; position: absolute; left: -3px; top: 4px; font-family: Georgia, "Times New Roman", serif; font-size: 46px; line-height: 0; color: var(--naver); }
 
+/* 후기 본문 */
+.vc-text { font-size: 13.5px; color: var(--muted); line-height: 1.66; letter-spacing: -0.02em; word-break: keep-all; margin: 0; }
+
 /* 시공 사진 썸네일 */
 .vc-photo { border-radius: 8px; overflow: hidden; aspect-ratio: 16 / 10; background: var(--line); }
 .vc-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
