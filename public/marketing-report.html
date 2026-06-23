@@ -4,90 +4,132 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
-<title>스피드설비 홈페이지 — 마케팅 활용 보고서</title>
+<title>스피드설비 홈페이지 — 사장님을 위한 활용 설명서</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
 <style>
   :root{
     --navy:#0c2f4a; --navy-2:#103a5c; --aqua:#0fa9cc; --aqua-dk:#0b88a3; --aqua-lt:#e3f6fb;
-    --orange:#f26419; --ink:#1a2230; --muted:#5f6b7a; --muted-lt:#9aa6b4;
-    --line:#e3e8ee; --mist:#f3f6f9; --paper:#fff;
+    --orange:#f26419; --orange-lt:#fdeee6; --ink:#1a2230; --muted:#5f6b7a; --muted-lt:#9aa6b4;
+    --line:#e3e8ee; --mist:#f3f6f9; --paper:#fff; --green:#1c7d3e; --green-lt:#eafaf1;
     --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:var(--sans);color:var(--ink);background:var(--mist);line-height:1.7;letter-spacing:-0.02em;-webkit-font-smoothing:antialiased;}
   .wrap{max-width:920px;margin:0 auto;padding:0 20px;}
 
-  .doc-head{background:var(--navy);color:#fff;padding:54px 0 46px;}
+  .doc-head{background:var(--navy);color:#fff;padding:52px 0 44px;}
   .doc-head .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.16em;color:var(--aqua);margin-bottom:14px;}
   .doc-head h1{font-size:clamp(26px,5vw,38px);font-weight:800;line-height:1.25;letter-spacing:-0.03em;margin-bottom:14px;}
   .doc-head h1 em{font-style:normal;color:var(--aqua);}
   .doc-head p{font-size:16px;color:rgba(255,255,255,0.82);max-width:700px;}
-  .doc-meta{margin-top:22px;display:flex;gap:10px 22px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,0.65);}
+  .doc-head .free9{display:inline-block;margin-top:18px;background:rgba(15,169,204,0.18);border:1px solid rgba(15,169,204,0.5);color:#bdeaf6;font-weight:700;font-size:14px;padding:8px 15px;border-radius:8px;}
+  .doc-meta{margin-top:18px;display:flex;gap:10px 22px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,0.6);}
   .doc-meta b{color:#fff;font-weight:700;}
 
-  section{padding:42px 0;}
+  section{padding:38px 0;}
   .sec-label{font-size:12px;font-weight:700;letter-spacing:0.16em;color:var(--aqua-dk);margin-bottom:8px;}
-  .sec-title{font-size:24px;font-weight:800;letter-spacing:-0.03em;color:var(--navy);margin-bottom:8px;}
-  .sec-desc{font-size:15px;color:var(--muted);margin-bottom:24px;max-width:700px;}
+  .sec-title{font-size:23px;font-weight:800;letter-spacing:-0.03em;color:var(--navy);margin-bottom:8px;}
+  .sec-desc{font-size:15px;color:var(--muted);margin-bottom:22px;max-width:700px;}
 
-  .lead{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--aqua);border-radius:10px;padding:22px 24px;margin-top:-26px;box-shadow:0 10px 30px rgba(12,47,74,0.06);}
-  .lead h2{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:10px;letter-spacing:-0.03em;}
-  .lead p{font-size:15px;color:var(--muted);}
-  .lead p+p{margin-top:10px;}
-  .lead strong{color:var(--ink);font-weight:700;}
-  .lead .hl{color:var(--aqua-dk);font-weight:700;}
+  /* 3줄 핵심 요약 */
+  .summary{background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--aqua);border-radius:12px;padding:24px 26px;margin-top:-24px;box-shadow:0 12px 34px rgba(12,47,74,0.08);}
+  .summary h2{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:16px;letter-spacing:-0.03em;}
+  .s3{display:flex;flex-direction:column;gap:12px;}
+  .s3 li{display:flex;gap:13px;align-items:flex-start;font-size:15.5px;}
+  .s3 .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--aqua);color:#fff;display:grid;place-items:center;font-size:14px;font-weight:800;margin-top:1px;}
+  .s3 b{color:var(--ink);font-weight:700;}
 
-  /* 용어 사전 */
-  .glossary{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px 24px;box-shadow:0 6px 20px rgba(12,47,74,0.05);}
-  .gl{font-size:14px;}
-  .gl b{color:var(--navy);font-weight:800;}
-  .gl span{color:var(--muted);}
+  /* 오늘 할 일 */
+  .today{background:var(--orange-lt);border:1px solid #fbd9c6;border-left:5px solid var(--orange);border-radius:12px;padding:20px 24px;}
+  .today .t-label{font-size:12.5px;font-weight:800;color:var(--orange);letter-spacing:0.04em;margin-bottom:7px;}
+  .today p{font-size:16px;font-weight:700;color:var(--navy);line-height:1.55;}
+  .today small{display:block;margin-top:7px;font-size:13.5px;font-weight:400;color:var(--muted);}
 
-  .cards{display:flex;flex-direction:column;gap:16px;}
-  .card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px 24px;box-shadow:0 6px 20px rgba(12,47,74,0.05);}
-  .card-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;}
-  .num{flex-shrink:0;width:38px;height:38px;border-radius:9px;background:var(--aqua);color:#fff;display:grid;place-items:center;font-size:17px;font-weight:800;}
-  .card h3{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-0.03em;line-height:1.3;}
-  .card h3 small{display:block;font-size:12.5px;font-weight:700;color:var(--aqua-dk);letter-spacing:0;margin-top:3px;}
-
-  /* 쉽게 말하면 박스 */
-  .easy{background:var(--aqua-lt);border-radius:9px;padding:13px 15px;margin-bottom:13px;font-size:14.5px;color:var(--ink);}
-  .easy b{color:var(--aqua-dk);font-weight:800;}
-  .easy .ex{display:block;margin-top:5px;color:var(--muted);font-size:13.5px;}
-
-  .rows{display:grid;grid-template-columns:92px 1fr;gap:7px 14px;font-size:14px;}
-  .rows dt{color:var(--muted-lt);font-weight:700;font-size:12.5px;padding-top:1px;}
-  .rows dd{color:var(--ink);}
-  .rows dd.act{color:var(--muted);}
-  .chips{margin-top:14px;display:flex;gap:7px;flex-wrap:wrap;}
-  .chip{font-size:12px;font-weight:700;color:var(--aqua-dk);background:var(--aqua-lt);border:1px solid #cdeef6;border-radius:999px;padding:5px 12px;letter-spacing:-0.02em;}
-  .chip.free{color:#1c7d3e;background:#eafaf1;border-color:#bce8cd;}
-  .chip.easy-tag{color:var(--orange);background:#fdeee6;border-color:#fbd9c6;}
-
-  table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14px;}
+  /* 역할/비용 표 공통 */
+  table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14px;box-shadow:0 6px 20px rgba(12,47,74,0.05);}
   th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top;}
   th{background:var(--navy);color:#fff;font-weight:700;font-size:13px;letter-spacing:-0.02em;}
   tr:last-child td{border-bottom:0;}
   td b{color:var(--navy);}
   .week{white-space:nowrap;font-weight:800;color:var(--aqua-dk);}
 
-  .doc-foot{background:var(--navy);color:rgba(255,255,255,0.7);padding:34px 0;font-size:13px;}
-  .doc-foot b{color:#fff;}
-  .doc-foot a{color:var(--aqua);text-decoration:none;}
+  /* 역할 2분할 */
+  .roles{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;}
+  .role{border:1px solid var(--line);border-radius:12px;padding:18px 20px;background:var(--paper);}
+  .role.owner{border-top:4px solid var(--orange);}
+  .role.us{border-top:4px solid var(--aqua);}
+  .role h4{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:10px;}
+  .role ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+  .role li{font-size:13.5px;color:var(--ink);padding-left:18px;position:relative;}
+  .role li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--aqua);}
+  .role.owner li::before{background:var(--orange);}
+  .honest{margin-top:14px;background:var(--mist);border-radius:10px;padding:13px 16px;font-size:13.5px;color:var(--muted);}
+  .honest b{color:var(--ink);font-weight:700;}
+
+  /* 카드 그룹 */
+  .group{margin-top:28px;}
+  .group:first-of-type{margin-top:0;}
+  .group-label{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:800;color:var(--navy);letter-spacing:-0.03em;margin-bottom:14px;}
+  .group-label .gtag{font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:-0.02em;}
+  .gtag.view{color:var(--aqua-dk);background:var(--aqua-lt);border:1px solid #cdeef6;}
+  .gtag.key{color:var(--orange);background:var(--orange-lt);border:1px solid #fbd9c6;}
+  .gtag.ad{color:var(--green);background:var(--green-lt);border:1px solid #bce8cd;}
+
+  .cards{display:flex;flex-direction:column;gap:14px;}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:0 5px 16px rgba(12,47,74,0.045);}
+  .card--key{border-left:4px solid var(--orange);background:#fffaf7;}
+  .card-top{display:flex;align-items:flex-start;gap:13px;margin-bottom:12px;}
+  .num{flex-shrink:0;width:36px;height:36px;border-radius:9px;background:var(--aqua);color:#fff;display:grid;place-items:center;font-size:16px;font-weight:800;}
+  .card--key .num{background:var(--orange);}
+  .card h3{font-size:17px;font-weight:800;color:var(--navy);letter-spacing:-0.03em;line-height:1.3;}
+  .card h3 .star{color:var(--orange);font-size:12px;font-weight:700;margin-left:6px;}
+  .card h3 small{display:block;font-size:12px;font-weight:700;color:var(--muted-lt);letter-spacing:0;margin-top:3px;}
+
+  .easy{background:var(--aqua-lt);border-radius:9px;padding:12px 14px;margin-bottom:12px;font-size:14.5px;color:var(--ink);}
+  .card--key .easy{background:var(--orange-lt);}
+  .easy b{color:var(--aqua-dk);font-weight:800;}
+  .card--key .easy b{color:var(--orange);}
+  .easy .ex{display:block;margin-top:5px;color:var(--muted);font-size:13px;}
+
+  .who{display:flex;flex-wrap:wrap;gap:7px;align-items:center;font-size:13px;}
+  .who .lbl{font-size:11.5px;font-weight:700;color:var(--muted-lt);}
+  .tagw{font-size:12px;font-weight:700;border-radius:999px;padding:4px 11px;letter-spacing:-0.02em;}
+  .tagw.us{color:var(--aqua-dk);background:var(--aqua-lt);border:1px solid #cdeef6;}
+  .tagw.owner{color:var(--orange);background:var(--orange-lt);border:1px solid #fbd9c6;}
+  .tagw.cost0{color:var(--green);background:var(--green-lt);border:1px solid #bce8cd;}
+  .tagw.cost$ {color:#8a5a00;background:#fff5e0;border:1px solid #f3dca0;}
+  .bench{margin-top:10px;font-size:12.5px;color:var(--muted);background:var(--mist);border-radius:8px;padding:8px 12px;}
+  .bench b{color:var(--navy);font-weight:700;}
+
   .note{font-size:12.5px;color:var(--muted-lt);margin-top:18px;}
 
+  details.gloss{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:4px 22px;box-shadow:0 5px 16px rgba(12,47,74,0.045);}
+  details.gloss summary{font-size:16px;font-weight:800;color:var(--navy);padding:16px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+  details.gloss summary::-webkit-details-marker{display:none;}
+  details.gloss summary::after{content:"펼치기 ▾";font-size:13px;font-weight:700;color:var(--aqua-dk);}
+  details.gloss[open] summary::after{content:"접기 ▴";}
+  .glossary{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;padding:0 0 18px;}
+  .gl{font-size:14px;}
+  .gl b{color:var(--navy);font-weight:800;}
+  .gl span{color:var(--muted);}
+
+  .doc-foot{background:var(--navy);color:rgba(255,255,255,0.7);padding:32px 0;font-size:13px;}
+  .doc-foot b{color:#fff;}
+  .doc-foot a{color:var(--aqua);text-decoration:none;}
+
   @media (max-width:560px){
+    .roles{grid-template-columns:1fr;}
     .glossary{grid-template-columns:1fr;}
-    .rows{grid-template-columns:1fr;gap:2px;}
-    .rows dt{padding-top:8px;}
     .card-top{gap:11px;}
   }
   @media print{
     body{background:#fff;}
-    .card,.lead,table,.glossary{box-shadow:none;}
-    section{padding:22px 0;}
+    .card,.summary,table,.role,.today,details.gloss{box-shadow:none;}
+    section{padding:20px 0;}
     .doc-head,.doc-foot{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    details.gloss{padding-bottom:14px;}
+    details.gloss summary::after{display:none;}
   }
 </style>
 </head>
@@ -96,8 +138,9 @@
 <header class="doc-head">
   <div class="wrap">
     <span class="tag">사장님을 위한 쉬운 설명서</span>
-    <h1>우리 홈페이지로<br /><em>손님을 더 부르는</em> 방법 10가지</h1>
-    <p>전단지는 몇 명이 봤는지 알 길이 없습니다. 그런데 홈페이지는 다릅니다. 누가, 어디서, 몇 시에 들어와서 전화를 걸었는지 전부 <b>숫자로 남습니다.</b> 그 숫자를 보고 "돈 되는 광고만 남기는" 것이 핵심입니다. 어려운 말은 그대로 두되, 옆에 쉬운 풀이를 같이 적었습니다.</p>
+    <h1>우리 홈페이지로<br /><em>손님을 더 부르는</em> 방법</h1>
+    <p>전단지는 몇 명이 봤는지 알 길이 없습니다. 그런데 홈페이지는 다릅니다. 누가·어디서·몇 시에 들어와 전화를 걸었는지 전부 <b>숫자로 남습니다.</b> 그 숫자를 보고 "돈 되는 광고만 남기는" 것이 핵심입니다.</p>
+    <span class="free9">10가지 중 9가지는 광고비 0원 · 사장님은 한 달에 5분만</span>
     <div class="doc-meta">
       <span>대상 · <b>스피드설비 (부산·경남 배관설비)</b></span>
       <span>작성일 · <b>2026-06-23</b></span>
@@ -105,181 +148,206 @@
   </div>
 </header>
 
-<section style="padding-top:36px;">
+<!-- 3줄 핵심 요약 -->
+<section style="padding-top:34px;">
   <div class="wrap">
-    <div class="lead">
-      <h2>딱 한 가지만 기억하세요</h2>
-      <p>홈페이지에 <span class="hl">GTM</span>이라는 작은 장치 하나만 달면, 가게에 <strong>CCTV를 단 것처럼</strong> 누가 들어와서 어디를 보고 전화를 거는지 다 보입니다. 따로 프로그램을 매번 손대지 않아도 됩니다.</p>
-      <p>그러면 "광고비를 썼더니 <strong>전화가 실제로 몇 통 왔다</strong>"를 숫자로 확인할 수 있습니다. 전화가 오는 광고만 남기고 나머지는 끄면, <strong>같은 돈으로 손님이 늘어납니다.</strong></p>
+    <div class="summary">
+      <h2>바쁘시면 이 3줄만 보세요</h2>
+      <ul class="s3">
+        <li><span class="n">1</span><div><b>방문자·전화를 세는 무료 장치(GTM·GA4)를 먼저 답니다.</b> 다는 건 업체가 합니다. 사장님이 컴퓨터 만질 일은 없습니다.</div></li>
+        <li><span class="n">2</span><div><b>"전화·견적 신청이 실제로 몇 건 왔는지"를 셉니다.</b> 방문자 수가 아니라 진짜 전화 건수가 성과입니다.</div></li>
+        <li><span class="n">3</span><div><b>그 숫자를 보고 전화가 잘 나오는 광고만 남깁니다.</b> 사장님은 한 달에 한 번, 보고서 보고 "계속할까 말까"만 정하면 됩니다.</div></li>
+      </ul>
     </div>
   </div>
 </section>
 
-<section style="padding-top:8px;padding-bottom:14px;">
+<!-- 오늘 당장 할 일 -->
+<section style="padding-top:6px;padding-bottom:14px;">
   <div class="wrap">
-    <p class="sec-label">먼저 읽기</p>
-    <h2 class="sec-title">자주 나오는 말, 한 줄 사전</h2>
-    <p class="sec-desc">아래 단어만 알아두면 보고서 전체가 쉽게 읽힙니다.</p>
-    <div class="glossary">
-      <p class="gl"><b>GTM</b> · <span>홈페이지에 다는 '데이터 수집 장치'. 한 번 달면 여러 측정을 손쉽게 추가합니다.</span></p>
-      <p class="gl"><b>GA4</b> · <span>구글이 무료로 주는 '방문자 장부'. 몇 명이 왔는지 등이 자동 기록됩니다.</span></p>
-      <p class="gl"><b>전환</b> · <span>단순 구경이 아니라 '전화·견적신청 같은 진짜 행동'을 한 것.</span></p>
-      <p class="gl"><b>유입</b> · <span>어느 통로(검색·광고·SNS)로 우리 사이트에 들어왔는지.</span></p>
-      <p class="gl"><b>리드(lead)</b> · <span>연락처를 남긴 '잠재 손님'. 견적 신청 넣은 사람 등.</span></p>
-      <p class="gl"><b>리타게팅</b> · <span>한 번 방문한 사람을 따라다니며 광고를 다시 보여주는 것.</span></p>
+    <div class="today">
+      <p class="t-label">오늘 당장 할 일 — 딱 한 가지</p>
+      <p>홈페이지 만든 사람(또는 우리)에게 전화 한 통: <br />"방문자·전화 세는 장치(GTM·GA4) 좀 달아주세요."</p>
+      <small>이게 전부입니다. 사장님은 더 하실 게 없습니다. 장치값은 0원이고, 다는 데 보통 1~3일이면 됩니다.</small>
     </div>
   </div>
 </section>
 
-<section style="padding-top:14px;">
+<!-- 누가/얼마/며칠 -->
+<section style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <p class="sec-label">제일 궁금한 것 먼저</p>
+    <h2 class="sec-title">누가 하나 · 얼마 드나 · 며칠 걸리나</h2>
+    <p class="sec-desc">"무료"라는 말만 믿기 어려우실 겁니다. 솔직하게 나눠 적었습니다. 프로그램 자체는 구글·MS가 공짜로 주고, <b>다는 품(설치·관리)만 사람 일</b>입니다.</p>
+    <table>
+      <thead>
+        <tr><th>단계</th><th>무엇을</th><th>누가</th><th>돈</th><th>기간</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="week">1단계<br />(측정 깔기)</td><td>장치 설치 + 전화·카톡·견적 건수 세기</td><td>업체(코드 심기)</td><td>장치값 <b>0원</b> · 설치 품 별도(1회)</td><td>1~3일</td></tr>
+        <tr><td class="week">2단계<br />(들여다보기)</td><td>지역·시간·화면 분석 보고서</td><td>업체 정리 → 사장님 5분 확인</td><td>장치값 <b>0원</b> · 월 관리 협의</td><td>매달 1회</td></tr>
+        <tr><td class="week">3단계<br />(광고·선택)</td><td>검색광고 + 나간 손님 재노출</td><td>업체 세팅 → 사장님 결정</td><td><b>광고비</b>(하루 상한은 사장님이 정함)</td><td>원할 때</td></tr>
+      </tbody>
+    </table>
+
+    <div class="roles">
+      <div class="role owner">
+        <h4>사장님이 하는 것</h4>
+        <ul>
+          <li>오늘 전화 한 통("장치 달아주세요")</li>
+          <li>한 달에 한 번, 보고서 5분 확인</li>
+          <li>"이 광고 계속할까 말까" 결정만</li>
+          <li>(광고 시) 하루 쓸 돈 상한 정하기</li>
+        </ul>
+      </div>
+      <div class="role us">
+        <h4>업체(우리)가 하는 것</h4>
+        <ul>
+          <li>장치(GTM·GA4·클래리티) 설치</li>
+          <li>전화·카톡·견적 건수 측정 세팅</li>
+          <li>매달 숫자 보고서 정리·전달</li>
+          <li>(광고 시) 광고 세팅·관리</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="honest">
+      <b>빠져나갈 문이 있습니다.</b> 1단계 측정만 깔고 광고는 안 하셔도 됩니다. 숫자를 2~3주 보시고 내키지 않으면 거기서 멈추시면 됩니다. 처음부터 광고비를 태우라는 게 아닙니다.
+    </div>
+  </div>
+</section>
+
+<!-- 활용 10가지 -->
+<section>
   <div class="wrap">
     <p class="sec-label">활용 방법</p>
     <h2 class="sec-title">홈페이지로 할 수 있는 10가지</h2>
-    <p class="sec-desc">각 항목은 "이게 뭔지(쉽게) → 무엇을 알 수 있는지 → 그래서 뭘 하면 되는지" 순서입니다.</p>
+    <p class="sec-desc">4개 묶음으로 나눴습니다. <b>주황색 카드(진짜 성과)가 가장 중요</b>합니다. 나머지는 "있으면 좋은" 것이라 보시면 됩니다.</p>
 
-    <div class="cards">
+    <!-- 그룹 A -->
+    <div class="group">
+      <div class="group-label">누가 오나 — 보기만 하면 됩니다 <span class="gtag view">설치 후 자동 · 0원</span></div>
+      <div class="cards">
 
-      <!-- 1 -->
-      <article class="card">
-        <div class="card-top"><span class="num">1</span><h3>방문자 기본 보기<small>몇 명이, 어디서 들어오나</small></h3></div>
-        <div class="easy"><b>쉽게 말하면</b> · 가게 입구에 사람 세는 기계를 단 겁니다. 하루에 몇 명이 들어왔는지, 네이버 검색으로 왔는지 광고 보고 왔는지가 보입니다.
-          <span class="ex">예) "어제 80명 들어왔고, 그중 절반은 네이버 검색으로 왔다"</span></div>
-        <dl class="rows">
-          <dt>알 수 있는 것</dt><dd>방문자 수, 처음 온 사람 / 다시 온 사람, 들어온 통로.</dd>
-          <dt>그래서</dt><dd class="act">손님을 가장 많이 데려온 통로에 힘을 주고, 효과 없는 데는 돈을 안 씁니다.</dd>
-        </dl>
-        <div class="chips"><span class="chip">GA4 + GTM</span><span class="chip free">무료</span></div>
-      </article>
+        <article class="card">
+          <div class="card-top"><span class="num">1</span><h3>방문자 기본 보기<small>몇 명이, 어디서 들어오나</small></h3></div>
+          <div class="easy"><b>쉽게 말하면</b> · 가게 입구에 사람 세는 기계를 단 겁니다. 하루 몇 명, 네이버 검색으로 왔는지 광고 보고 왔는지 보입니다.
+            <span class="ex">예) "어제 80명, 절반은 네이버 검색으로"</span></div>
+          <div class="who"><span class="lbl">누가:</span><span class="tagw us">업체 설치</span><span class="tagw owner">사장님 보기만</span><span class="tagw cost0">0원</span></div>
+        </article>
 
-      <!-- 2 -->
-      <article class="card">
-        <div class="card-top"><span class="num">2</span><h3>어느 동네에서 보는지<small>지역 보기</small></h3></div>
-        <div class="easy"><b>쉽게 말하면</b> · 우리 홈페이지를 본 사람이 어느 동네에 사는지 보입니다.
-          <span class="ex">예) "명지동·하단동에서 유독 많이 본다"가 숫자로 확인됨</span></div>
-        <dl class="rows">
-          <dt>알 수 있는 것</dt><dd>접속자의 지역(시·구·동 단위).</dd>
-          <dt>그래서</dt><dd class="act">많이 보는 동네에 전단·현수막을 집중하고, 사이트 "서비스 지역" 문구도 그 동네 위주로 손봅니다.</dd>
-        </dl>
-        <div class="chips"><span class="chip">GA4 지역 보기</span><span class="chip free">무료</span></div>
-      </article>
+        <article class="card">
+          <div class="card-top"><span class="num">2</span><h3>어느 동네에서 보나<small>지역 보기</small></h3></div>
+          <div class="easy"><b>쉽게 말하면</b> · 본 사람이 어느 동네에 사는지 보입니다.
+            <span class="ex">예) "명지동·하단동에서 유독 많이 본다"</span></div>
+          <div class="who"><span class="lbl">누가:</span><span class="tagw us">업체 설치</span><span class="tagw owner">사장님 보기만</span><span class="tagw cost0">0원</span></div>
+        </article>
 
-      <!-- 3 -->
-      <article class="card">
-        <div class="card-top"><span class="num">3</span><h3>몇 시에 몰리는지<small>시간대·요일 보기</small></h3></div>
-        <div class="easy"><b>쉽게 말하면</b> · 사람들이 주로 몇 시에, 무슨 요일에 들어오는지 보입니다. 배관 일은 새벽·주말에 급한 전화가 많습니다.
-          <span class="ex">예) "밤 11시~새벽에 접속이 확 는다"가 보이면 그 시간 대비</span></div>
-        <dl class="rows">
-          <dt>알 수 있는 것</dt><dd>시간대별·요일별 방문과 전화 클릭이 몰리는 때.</dd>
-          <dt>그래서</dt><dd class="act">바쁜 시간에 광고를 켜 두고, 그 시간 전화를 놓치지 않게 준비합니다.</dd>
-        </dl>
-        <div class="chips"><span class="chip">GA4 시간 보기</span><span class="chip free">무료</span></div>
-      </article>
+        <article class="card">
+          <div class="card-top"><span class="num">3</span><h3>몇 시에 몰리나<small>시간대·요일 보기</small></h3></div>
+          <div class="easy"><b>쉽게 말하면</b> · 주로 몇 시·무슨 요일에 들어오는지 보입니다. 배관은 새벽·주말 급한 전화가 돈입니다.
+            <span class="ex">예) "밤 11시~새벽 접속이 확 는다" → 그 시간 전화 받을 준비</span></div>
+          <div class="who"><span class="lbl">누가:</span><span class="tagw us">업체 설치</span><span class="tagw owner">사장님 보기만</span><span class="tagw cost0">0원</span></div>
+        </article>
 
-      <!-- 4 -->
-      <article class="card">
-        <div class="card-top"><span class="num">4</span><h3>뭐라고 검색해서 왔나<small>유입 검색어</small></h3></div>
-        <div class="easy"><b>쉽게 말하면</b> · 사람들이 네이버·구글에 "어떤 말을 쳐서" 우리를 찾았는지 보입니다.
-          <span class="ex">예) "부산 변기막힘", "하단동 하수구" 같은 실제 검색어</span></div>
-        <dl class="rows">
-          <dt>알 수 있는 것</dt><dd>실제 검색한 단어, 휴대폰으로 본 비율(이 업종은 대부분 휴대폰).</dd>
-          <dt>그래서</dt><dd class="act">사람들이 자주 치는 말을 광고에 그대로 넣고, 휴대폰 화면을 1순위로 다듬습니다.</dd>
-        </dl>
-        <div class="chips"><span class="chip">서치콘솔</span><span class="chip">GA4</span><span class="chip free">무료</span></div>
-      </article>
+        <article class="card">
+          <div class="card-top"><span class="num">4</span><h3>뭐라고 검색해 왔나<small>유입 검색어</small></h3></div>
+          <div class="easy"><b>쉽게 말하면</b> · 사람들이 "어떤 말을 쳐서" 우리를 찾았는지 보입니다.
+            <span class="ex">예) "부산 변기막힘", "하단동 하수구" → 광고 문구에 그대로 사용</span></div>
+          <div class="who"><span class="lbl">누가:</span><span class="tagw us">업체 설치</span><span class="tagw owner">사장님 보기만</span><span class="tagw cost0">0원</span></div>
+        </article>
 
-      <!-- 5 -->
-      <article class="card">
-        <div class="card-top"><span class="num">5</span><h3>전화 버튼 누른 수 세기<small>제일 중요 — 진짜 성과</small></h3></div>
-        <div class="easy"><b>쉽게 말하면</b> · '전화 즉시출동' 버튼을 몇 명이 눌렀는지 셉니다. 구경만 한 사람과 진짜 전화한 사람을 구분하는 겁니다.
-          <span class="ex">예) "방문 80명 중 12명이 전화 버튼을 눌렀다"</span></div>
-        <dl class="rows">
-          <dt>알 수 있는 것</dt><dd>전화 버튼·플로팅 전화 버튼을 누른 횟수.</dd>
-          <dt>그래서</dt><dd class="act">방문자 수가 아니라 '전화 건 수'로 광고가 돈값을 했는지 판단합니다.</dd>
-        </dl>
-        <div class="chips"><span class="chip">GTM 클릭 측정</span><span class="chip free">무료</span><span class="chip easy-tag">핵심 권장</span></div>
-      </article>
-
-      <!-- 6 -->
-      <article class="card">
-        <div class="card-top"><span class="num">6</span><h3>카톡 상담 누른 수 세기<small>채팅 손님 비중</small></h3></div>
-        <div class="easy"><b>쉽게 말하면</b> · 전화 대신 카톡으로 물어보는 걸 좋아하는 손님이 얼마나 되는지 보입니다.
-          <span class="ex">예) "전화보다 카톡 상담을 더 많이 누른다"면 카톡 응대를 강화</span></div>
-        <dl class="rows">
-          <dt>알 수 있는 것</dt><dd>카톡 상담 버튼을 누른 횟수.</dd>
-          <dt>그래서</dt><dd class="act">카톡 손님이 많으면 카카오 자동응답·상담 멘트를 다듬어 놓치지 않게 합니다.</dd>
-        </dl>
-        <div class="chips"><span class="chip">GTM 클릭 측정</span><span class="chip free">무료</span></div>
-      </article>
-
-      <!-- 7 -->
-      <article class="card">
-        <div class="card-top"><span class="num">7</span><h3>견적 신청서 넣은 수<small>손님 한 명에 든 광고비</small></h3></div>
-        <div class="easy"><b>쉽게 말하면</b> · 홈페이지에서 견적 신청서를 넣은 사람(= 연락처 남긴 잠재 손님, '리드')이 몇 명인지, 어느 광고 보고 왔는지 보입니다.
-          <span class="ex">예) "광고비 10만원 써서 신청 5건 → 한 건에 2만원꼴"</span></div>
-        <dl class="rows">
-          <dt>알 수 있는 것</dt><dd>견적·출동 신청 건수와 그 사람이 들어온 통로.</dd>
-          <dt>그래서</dt><dd class="act">손님 한 명 데려오는 데 든 광고비를 계산해, 비싼 통로는 줄이고 싼 통로에 더 씁니다.</dd>
-        </dl>
-        <div class="chips"><span class="chip">GTM 신청 측정</span><span class="chip">UTM 꼬리표</span><span class="chip free">무료</span></div>
-      </article>
-
-      <!-- 8 -->
-      <article class="card">
-        <div class="card-top"><span class="num">8</span><h3>어디까지 보고 나가나<small>화면 내려본 정도</small></h3></div>
-        <div class="easy"><b>쉽게 말하면</b> · 손님이 홈페이지를 어디까지 내려보고, 어디서 그만 보고 나가는지 보입니다. 가게에서 손님이 어느 코너에 오래 머무는지 보는 것과 같습니다.
-          <span class="ex">예) "후기까지는 보는데 비용 부분에서 많이 나간다"</span></div>
-        <dl class="rows">
-          <dt>알 수 있는 것</dt><dd>어느 부분(후기·비용·작업과정)까지 보고 이탈하는지, 어디에 오래 머무는지.</dd>
-          <dt>그래서</dt><dd class="act">사람들이 좋아하는 부분을 위로 올리고, 나가는 지점의 문구를 고쳐 전화로 이어지게 합니다.</dd>
-        </dl>
-        <div class="chips"><span class="chip">GTM 스크롤 측정</span><span class="chip free">무료</span></div>
-      </article>
-
-      <!-- 9 -->
-      <article class="card">
-        <div class="card-top"><span class="num">9</span><h3>손가락 동선까지 보기<small>히트맵 · 화면 녹화</small></h3></div>
-        <div class="easy"><b>쉽게 말하면</b> · 사람들이 화면 어디를 누르는지 색으로 보여주고(히트맵), 실제 방문을 CCTV 영상처럼 다시 볼 수 있습니다.
-          <span class="ex">예) "전화 버튼 옆 글자를 자꾸 누른다 → 버튼이 헷갈린다"</span></div>
-        <dl class="rows">
-          <dt>알 수 있는 것</dt><dd>많이 누르는 곳(히트맵), 실제 방문 장면 재생.</dd>
-          <dt>그래서</dt><dd class="act">안 눌리는 버튼·헷갈리는 부분을 찾아 위치와 크기를 고칩니다.</dd>
-        </dl>
-        <div class="chips"><span class="chip">MS 클래리티</span><span class="chip free">완전 무료</span><span class="chip easy-tag">강력 추천</span></div>
-      </article>
-
-      <!-- 10 -->
-      <article class="card">
-        <div class="card-top"><span class="num">10</span><h3>나간 손님 다시 부르기<small>광고 자동 조절 + 리타게팅</small></h3></div>
-        <div class="easy"><b>쉽게 말하면</b> · 광고를 '전화로 이어진 만큼'에 맞춰 자동으로 조절하고, 들어왔다가 전화 안 하고 나간 사람에게 광고를 한 번 더 띄웁니다. 가게 앞 지나간 사람에게 전단을 다시 쥐여주는 것과 같습니다.
-          <span class="ex">예) "어제 구경만 하고 간 사람에게 오늘 다시 배너 노출"</span></div>
-        <dl class="rows">
-          <dt>알 수 있는 것</dt><dd>광고 클릭이 전화·신청까지 이어진 비율, 전화 안 하고 나간 방문자 목록.</dd>
-          <dt>그래서</dt><dd class="act">전화가 잘 나오는 쪽으로 광고가 알아서 돈을 쓰게 하고, 놓친 손님을 다시 잡습니다.</dd>
-        </dl>
-        <div class="chips"><span class="chip">구글 광고</span><span class="chip">메타(인스타·페북)</span><span class="chip">네이버 광고</span><span class="chip easy-tag">광고비 필요</span></div>
-      </article>
-
+      </div>
     </div>
-    <p class="note">※ 모든 측정은 개인정보 동의·쿠키 안내 범위 안에서 합니다. 손님의 전화번호·이름 같은 개인정보는 분석 도구에 그대로 넘기지 않고, 클릭·신청 같은 '행동'만 기록하는 방식을 권장합니다.</p>
+
+    <!-- 그룹 B (핵심) -->
+    <div class="group">
+      <div class="group-label">진짜 성과 — 전화·신청 건수 <span class="gtag key">가장 중요 · 0원</span></div>
+      <div class="cards">
+
+        <article class="card card--key">
+          <div class="card-top"><span class="num">5</span><h3>전화 버튼 누른 수<span class="star">★ 가장 중요</span><small>구경한 사람 ≠ 전화한 사람</small></h3></div>
+          <div class="easy"><b>쉽게 말하면</b> · '전화 즉시출동' 버튼을 몇 명이 눌렀는지 셉니다. 구경만 한 사람과 진짜 전화한 사람을 구분합니다.
+            <span class="ex">예) "방문 80명 중 12명이 전화 버튼을 눌렀다"</span></div>
+          <div class="who"><span class="lbl">누가:</span><span class="tagw us">업체 1회 세팅</span><span class="tagw owner">사장님 보기만</span><span class="tagw cost0">0원</span></div>
+          <p class="bench"><b>참고 합격선</b> · 방문 100명당 전화·신청 3~5건이면 보통입니다. 그보다 낮으면 광고가 아니라 <b>사이트 문구·버튼</b>부터 손봐야 합니다.</p>
+        </article>
+
+        <article class="card card--key">
+          <div class="card-top"><span class="num">6</span><h3>카톡 상담 누른 수<small>전화 대신 채팅 손님</small></h3></div>
+          <div class="easy"><b>쉽게 말하면</b> · 전화 대신 카톡으로 물어보길 좋아하는 손님이 얼마나 되는지 보입니다.
+            <span class="ex">전화(5번)와 한 번에 같이 세팅됩니다. 따로 일이 느는 게 아닙니다.</span></div>
+          <div class="who"><span class="lbl">누가:</span><span class="tagw us">5번과 함께 세팅</span><span class="tagw owner">사장님 보기만</span><span class="tagw cost0">0원</span></div>
+        </article>
+
+        <article class="card card--key">
+          <div class="card-top"><span class="num">7</span><h3>견적 신청서 넣은 수<span class="star">★ 가장 중요</span><small>손님 한 명에 든 광고비</small></h3></div>
+          <div class="easy"><b>쉽게 말하면</b> · 견적 신청서를 넣은 사람(연락처 남긴 잠재 손님)이 몇 명인지, 어느 광고 보고 왔는지 보입니다.
+            <span class="ex">예) "광고비 10만원 써서 신청 5건 → 한 건에 2만원꼴" (실제 숫자로 확인 가능)</span></div>
+          <div class="who"><span class="lbl">누가:</span><span class="tagw us">업체 1회 세팅</span><span class="tagw owner">사장님 결정만</span><span class="tagw cost0">0원</span></div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- 그룹 C -->
+    <div class="group">
+      <div class="group-label">화면 고치기 — 더 많이 전화 오게 <span class="gtag view">0원</span></div>
+      <div class="cards">
+
+        <article class="card">
+          <div class="card-top"><span class="num">8</span><h3>어디까지 보고 나가나<small>화면 내려본 정도</small></h3></div>
+          <div class="easy"><b>쉽게 말하면</b> · 손님이 화면을 어디까지 내려보고 어디서 나가는지 보입니다.
+            <span class="ex">예) "후기까지는 보는데 비용 부분에서 많이 나간다" → 그 부분 문구를 손봄</span></div>
+          <div class="who"><span class="lbl">누가:</span><span class="tagw us">업체 설치·수정</span><span class="tagw cost0">0원</span></div>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><span class="num">9</span><h3>손가락 동선 보기<small>화면 녹화 · 클릭 색칠</small></h3></div>
+          <div class="easy"><b>쉽게 말하면</b> · 어디를 누르는지 색으로 보여주고(히트맵), 실제 방문을 CCTV 영상처럼 다시 봅니다. 가끔 한 번씩만 보면 됩니다.
+            <span class="ex">예) "전화 버튼 옆 글자를 자꾸 누른다 → 버튼이 헷갈린다"</span></div>
+          <div class="who"><span class="lbl">누가:</span><span class="tagw us">업체 설치·확인</span><span class="tagw cost0">완전 0원(MS 클래리티)</span></div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- 그룹 D -->
+    <div class="group">
+      <div class="group-label">광고로 키우기 — 유일하게 광고비가 듭니다 <span class="gtag ad">선택 · 광고비</span></div>
+      <div class="cards">
+
+        <article class="card">
+          <div class="card-top"><span class="num">10</span><h3>나간 손님 다시 부르기<small>광고 자동 조절 + 재노출</small></h3></div>
+          <div class="easy"><b>쉽게 말하면</b> · 광고를 '전화로 이어진 만큼'에 맞춰 조절하고, 들어왔다 전화 안 하고 나간 사람에게 광고를 한 번 더 띄웁니다. 가게 앞 지나간 사람에게 전단을 다시 쥐여주는 것과 같습니다.
+            <span class="ex">전화번호를 아는 게 아니라, 우리 사이트를 본 기기에 광고만 다시 보이는 방식입니다.</span></div>
+          <div class="who"><span class="lbl">누가:</span><span class="tagw us">업체 세팅·관리</span><span class="tagw owner">사장님 하루 상한 결정</span><span class="tagw cost$">광고비(상한 고정 가능)</span></div>
+          <p class="bench"><b>안심 포인트</b> · 하루 쓸 돈 상한을 사장님이 정합니다(예: 하루 1만원). 통장에서 알아서 무한정 빠지지 않습니다.</p>
+        </article>
+
+      </div>
+    </div>
+
+    <p class="note">※ 모든 측정은 개인정보 동의·쿠키 안내 범위 안에서 합니다. 손님의 전화번호·이름 같은 개인정보는 분석 도구에 그대로 넘기지 않고, 클릭·신청 같은 '행동'만 기록합니다.</p>
   </div>
 </section>
 
-<section style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+<!-- 용어 사전 (접이식, 부록) -->
+<section style="padding-top:0;">
   <div class="wrap">
-    <p class="sec-label">시작 순서</p>
-    <h2 class="sec-title">한 번에 다 하지 않습니다 — 3단계</h2>
-    <p class="sec-desc">돈 안 드는 것부터 깔고, 데이터가 좀 쌓이면 그 숫자를 근거로 광고를 시작합니다.</p>
-    <table>
-      <thead>
-        <tr><th>순서</th><th>무엇을 하나</th><th>얻는 것</th><th>비용</th></tr>
-      </thead>
-      <tbody>
-        <tr><td class="week">1단계<br />(기초 깔기)</td><td><b>GTM·GA4</b> 달기, <b>전화·카톡 버튼 누른 수</b> 세기, 견적 신청 수 세기</td><td>광고를 켜기 전에 "지금 우리 사이트 현황"을 숫자로 파악.</td><td>0원</td></tr>
-        <tr><td class="week">2단계<br />(들여다보기)</td><td><b>지역·시간대</b> 보기, <b>클래리티</b>로 손가락 동선·화면 녹화, 어디까지 보는지</td><td>어느 동네·몇 시에 손님이 몰리는지, 화면 어디서 나가는지 파악 → 사이트·운영 손보기.</td><td>0원</td></tr>
-        <tr><td class="week">3단계<br />(광고 키우기)</td><td><b>검색광고</b> + 전화 연결 측정, <b>나간 손님 다시 부르기</b>, 광고 꼬리표(UTM) 관리</td><td>전화 1통에 든 돈 기준으로 광고를 굴리고, 놓친 손님 회수 → 광고비 효율 극대화.</td><td>광고비 + 운영</td></tr>
-      </tbody>
-    </table>
-    <p class="note">권장: <b>1단계(전부 무료)</b>를 먼저 깔고 2~3주 숫자를 모은 뒤, 그 숫자를 근거로 3단계 광고를 시작하면 광고비 낭비를 크게 줄일 수 있습니다.</p>
+    <details class="gloss">
+      <summary>모르는 단어가 나오면 — 한 줄 사전</summary>
+      <div class="glossary">
+        <p class="gl"><b>GTM</b> · <span>홈페이지에 다는 '데이터 수집 장치'. 한 번 달면 여러 측정을 손쉽게 추가.</span></p>
+        <p class="gl"><b>GA4</b> · <span>구글이 무료로 주는 '방문자 장부'. 몇 명 왔는지 자동 기록.</span></p>
+        <p class="gl"><b>클래리티</b> · <span>마이크로소프트가 무료로 주는 '화면 녹화·클릭 색칠' 도구.</span></p>
+        <p class="gl"><b>전환</b> · <span>단순 구경이 아니라 '전화·견적신청 같은 진짜 행동'.</span></p>
+        <p class="gl"><b>유입</b> · <span>어느 통로(검색·광고·SNS)로 들어왔는지.</span></p>
+        <p class="gl"><b>리드</b> · <span>연락처를 남긴 '잠재 손님'. 견적 신청자 등.</span></p>
+        <p class="gl"><b>UTM</b> · <span>광고 링크에 붙이는 '꼬리표'. 어느 광고로 왔는지 구분.</span></p>
+        <p class="gl"><b>리타게팅</b> · <span>우리 사이트를 본 기기에 광고를 다시 보여주는 것.</span></p>
+      </div>
+    </details>
   </div>
 </section>
 
