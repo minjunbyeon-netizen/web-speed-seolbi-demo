@@ -212,13 +212,26 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
 .why-item p { font-size: 14px; color: rgba(255,255,255,0.74); }
 
 /* ===================================================================
-   PROCESS
+   ZIGZAG — 이미지·텍스트 교차 행 (PROCESS·PRICING 공용)
+   배관관리사 레퍼런스 차용: 한 행은 이미지 좌·텍스트 우, 다음 행은 반전
    =================================================================== */
-.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
-.process-step { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px 26px; }
-.step-no { font-family: var(--display); font-size: 20px; font-weight: 800; color: #fff; background: var(--blue-700); width: 44px; height: 44px; display: grid; place-items: center; border-radius: var(--radius); letter-spacing: 0; }
-.process-step h3 { font-size: 19px; color: var(--blue-900); margin: 16px 0 8px; }
-.process-step p { font-size: 14px; color: var(--muted); }
+.zigzag { display: flex; flex-direction: column; gap: 72px; }
+.zz-row { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.zz-media {
+  border-radius: 20px; overflow: hidden; aspect-ratio: 16 / 11;
+  background: var(--blue-900); box-shadow: var(--shadow);
+}
+.zz-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.zz-row:hover .zz-media img { transform: scale(1.04); }
+.zz-rev .zz-media { order: 2; }          /* 텍스트 좌 / 이미지 우 */
+.zz-num {
+  display: inline-block; font-family: var(--display); font-size: 13px; font-weight: 800;
+  color: var(--blue-700); background: var(--mist); border: 1px solid var(--line);
+  padding: 5px 12px; border-radius: var(--radius); letter-spacing: 0.06em; margin-bottom: 16px;
+}
+.zz-eyebrow { font-size: 16px; font-weight: 800; color: var(--orange); letter-spacing: -0.02em; margin-bottom: 8px; }
+.zz-text h3 { font-size: clamp(24px, 3vw, 33px); font-weight: 800; color: var(--blue-900); line-height: 1.18; letter-spacing: -0.03em; margin-bottom: 16px; }
+.zz-desc { font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 460px; }
 
 /* ===================================================================
    GALLERY — 현장 한마디 9곳 (writeplz 패턴)
@@ -294,15 +307,12 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
 /* ===================================================================
    PRICING / ASSURANCE
    =================================================================== */
-.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
-.price-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 34px 30px; position: relative; }
-.price-card-lead { border-color: var(--orange); box-shadow: var(--shadow-soft); }
-.price-flag { position: absolute; right: 20px; top: 20px; font-size: 12px; font-weight: 700; color: #fff; background: var(--orange); padding: 4px 10px; border-radius: 4px; letter-spacing: -0.02em; }
-.price-card h3 { font-size: 20px; color: var(--blue-900); margin-bottom: 14px; letter-spacing: -0.03em; }
-.price-amt { font-family: var(--display); font-size: 38px; color: var(--blue-700); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; font-weight: 900; }
-.price-amt span { font-family: var(--sans); font-size: 16px; font-weight: 700; color: var(--muted); margin-left: 6px; letter-spacing: -0.02em; }
-.price-desc { font-size: 14px; color: var(--muted); }
-.price-note { margin-top: 18px; font-size: 13px; color: var(--muted-lt); }
+/* PRICING 지그재그 전용 (텍스트 블록에 가격 강조) */
+.zz-tag { display: inline-block; font-size: 12px; font-weight: 700; color: #fff; background: var(--orange); padding: 4px 11px; border-radius: 4px; letter-spacing: -0.02em; margin-bottom: 14px; }
+.zz-price { font-family: var(--display); font-size: clamp(34px, 5vw, 46px); font-weight: 900; color: var(--blue-700); line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 12px; }
+.zz-price span { font-family: var(--sans); font-size: 17px; font-weight: 700; color: var(--muted); margin-left: 8px; letter-spacing: -0.02em; }
+.zz-price--quote { color: var(--orange); }
+.price-note { margin-top: 44px; font-size: 13px; color: var(--muted-lt); }
 
 .assure-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
 .assure-item { background: var(--paper); border: 1px solid var(--line); border-left: 3px solid var(--orange); border-radius: var(--radius); padding: 22px; }
@@ -356,13 +366,16 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
    =================================================================== */
 @media (max-width: 900px) {
   .card-grid, .equip-grid, .voices-grid { grid-template-columns: repeat(2, 1fr); }
-  .process-grid { grid-template-columns: repeat(2, 1fr); }
   .why-grid { grid-template-columns: 1fr; }
   .area-inner { grid-template-columns: 1fr; gap: 28px; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .stat:nth-child(odd) { border-left: 0; }
   .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
-  .pricing-grid { grid-template-columns: 1fr; }
+  /* 지그재그: 이미지 위 / 텍스트 아래로 스택, 반전행도 이미지 우선 */
+  .zigzag { gap: 44px; }
+  .zz-row { grid-template-columns: 1fr; gap: 24px; }
+  .zz-rev .zz-media { order: 0; }
+  .zz-desc { max-width: none; }
   .assure-grid { grid-template-columns: repeat(2, 1fr); }
   .trust-inner { grid-template-columns: 1fr; text-align: center; gap: 22px; justify-items: center; }
   .trust-text { max-width: none; }
@@ -384,7 +397,7 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
   .nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-toggle.active span:nth-child(2) { opacity: 0; }
   .nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  .card-grid, .equip-grid, .process-grid, .voices-grid { grid-template-columns: 1fr; }
+  .card-grid, .equip-grid, .voices-grid { grid-template-columns: 1fr; }
   .contact-form { grid-template-columns: 1fr; }
   .area-list { grid-template-columns: 1fr; }
   .hero { padding: 84px 0 72px; }
@@ -435,12 +448,14 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
   .why-grid { gap: 12px; }
   .why-item { padding: 15px 16px; }
 
-  .process-step { padding: 20px 20px; }
-  .process-step h3 { margin: 12px 0 6px; }
-
-  .pricing-grid { gap: 12px; }
-  .price-card { padding: 22px 20px; }
-  .price-amt { font-size: 32px; margin-bottom: 10px; }
+  .zigzag { gap: 32px; }
+  .zz-row { gap: 16px; }
+  .zz-media { border-radius: 14px; aspect-ratio: 16 / 10; }
+  .zz-num { margin-bottom: 12px; }
+  .zz-text h3 { margin-bottom: 10px; }
+  .zz-price { margin-bottom: 10px; }
+  .zz-desc { font-size: 15px; }
+  .price-note { margin-top: 26px; }
   .assure-grid { gap: 12px; margin-top: 24px; }
   .assure-item { padding: 16px 18px; }
 
@@ -460,21 +475,9 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
 }
 
 /* ===================================================================
-   모바일 — 작업과정 초압축(한 줄 행) + 9곳 한마디 네이버 리뷰 스타일
+   모바일 — 9곳 한마디 네이버 리뷰 스타일
    =================================================================== */
 @media (max-width: 680px) {
-  /* ---- PROCESS: 카드 → 컴팩트 행 ---- */
-  .process .section-head { margin-bottom: 16px; }
-  .process-grid { gap: 8px; }
-  .process-step {
-    display: grid; grid-template-columns: 34px 1fr; column-gap: 12px; row-gap: 2px;
-    align-items: start; padding: 12px 14px;
-  }
-  .process-step .step-no { grid-row: 1 / span 2; width: 34px; height: 34px; font-size: 15px; border-radius: 7px; }
-  .process-step h3 { font-size: 16px; margin: 1px 0 0; align-self: center; }
-  .process-step:has(p) h3 { align-self: start; }
-  .process-step p { font-size: 13px; line-height: 1.45; margin: 0; color: var(--muted); }
-
   /* ---- VOICES: 네이버 리뷰 카드 ---- */
   .voices-grid { gap: 10px; }
   .voice-card { flex-direction: column; border-radius: 10px; box-shadow: none; }
