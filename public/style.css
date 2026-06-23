@@ -17,6 +17,9 @@
   --line:      #e3e8ee;
   --muted:     #5f6b7a;
   --muted-lt:  #9aa6b4;
+  --naver:     #03c75a;
+  --naver-lt:  #eafaf1;
+  --star:      #ffb400;
 
   --display: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -239,28 +242,50 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
    GALLERY — 현장 한마디 9곳 (writeplz 패턴)
    =================================================================== */
 .head-muted { color: var(--muted); font-weight: 400; }
+
+/* 섹션 헤드: 네이버 플레이스 리뷰 배지 */
+.naver-badge { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 8px 15px 8px 10px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); font-size: 13px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+.naver-badge .n-mark { width: 21px; height: 21px; border-radius: 5px; background: var(--naver); color: #fff; font-family: var(--display); font-weight: 800; font-size: 14px; display: grid; place-items: center; }
+.naver-badge .nb-star { color: var(--star); letter-spacing: 1px; }
+
 .voices-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
 .voice-card {
   background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
-  overflow: hidden; display: flex; flex-direction: column;
+  padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 14px;
   transition: box-shadow .25s ease, transform .2s ease, border-color .25s ease;
 }
-.voice-card:hover { border-color: var(--blue-500); box-shadow: var(--shadow); transform: translateY(-4px); }
-.vc-media { aspect-ratio: 16 / 9; background: var(--blue-900); display: flex; align-items: center; justify-content: center; padding: 16px; position: relative; overflow: hidden; }
-.vc-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; transition: transform .4s ease; }
-.voice-card:hover .vc-img { transform: scale(1.06); }
-.vc-media::after { content: ""; position: absolute; inset: 0; background: rgba(8,28,44,0.55); z-index: 1; pointer-events: none; }
-.vc-region { position: relative; z-index: 2; font-family: var(--display); font-size: 30px; font-weight: 900; color: #fff; letter-spacing: -0.03em; line-height: 1.1; text-align: center; text-shadow: 0 2px 12px rgba(8,28,44,0.5); }
-.voice-card[data-tone="a"] .vc-media, .voice-card[data-tone="d"] .vc-media, .voice-card[data-tone="g"] .vc-media { background: var(--blue-900); }
-.voice-card[data-tone="b"] .vc-media, .voice-card[data-tone="e"] .vc-media, .voice-card[data-tone="h"] .vc-media { background: var(--blue-800); }
-.voice-card[data-tone="c"] .vc-media, .voice-card[data-tone="f"] .vc-media, .voice-card[data-tone="i"] .vc-media { background: var(--blue-700); }
-.vc-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
-.vc-quote { font-size: 17px; font-weight: 700; line-height: 1.45; color: var(--blue-900); letter-spacing: -0.02em; word-break: keep-all; margin: 0; }
-.vc-meta { display: flex; gap: 7px; margin-top: auto; flex-wrap: wrap; }
-.vc-chip { font-size: 12px; font-weight: 700; color: var(--blue-700); border: 1px solid var(--line); background: var(--mist); padding: 4px 10px; border-radius: 4px; letter-spacing: -0.02em; white-space: nowrap; }
-.vc-chip--n { color: #fff; background: var(--orange); border-color: var(--orange); }
+.voice-card:hover { border-color: var(--naver); box-shadow: var(--shadow); transform: translateY(-4px); }
+
+/* 리뷰어 헤더 */
+.vc-head { display: flex; align-items: center; gap: 11px; }
+.vc-avatar {
+  width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+  display: grid; place-items: center; background: var(--naver); color: #fff;
+  font-family: var(--display); font-weight: 800; font-size: 17px; letter-spacing: -0.03em;
+}
+.vc-id { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
+.vc-name { font-size: 14px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+.vc-sub { display: flex; align-items: center; gap: 8px; }
+.vc-stars { font-size: 13px; color: var(--star); letter-spacing: 2px; line-height: 1; }
+.vc-stars .s-off { color: var(--line); }
+.vc-date { font-size: 12px; color: var(--muted-lt); letter-spacing: -0.02em; }
+.vc-nbadge { width: 22px; height: 22px; border-radius: 6px; background: var(--naver); color: #fff; font-family: var(--display); font-weight: 800; font-size: 14px; display: grid; place-items: center; flex-shrink: 0; align-self: flex-start; }
+
+/* 인용 한마디 + 큰 따옴표 */
+.vc-quote { position: relative; font-size: 16px; font-weight: 700; line-height: 1.5; color: var(--blue-900); letter-spacing: -0.02em; word-break: keep-all; margin: 0; padding-top: 20px; }
+.vc-quote::before { content: "\201C"; position: absolute; left: -3px; top: 4px; font-family: Georgia, "Times New Roman", serif; font-size: 46px; line-height: 0; color: var(--naver); }
+
+/* 시공 사진 썸네일 */
+.vc-photo { border-radius: 8px; overflow: hidden; aspect-ratio: 16 / 10; background: var(--line); }
+.vc-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.voice-card:hover .vc-photo img { transform: scale(1.05); }
+
+/* 네이버 감정 키워드 칩 (체크 표시) */
+.vc-meta { display: flex; gap: 7px; flex-wrap: wrap; margin-top: auto; }
+.vc-chip { font-size: 12px; font-weight: 700; color: var(--muted); background: var(--mist); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px 6px 26px; letter-spacing: -0.02em; white-space: nowrap; position: relative; }
+.vc-chip::before { content: ""; position: absolute; left: 11px; top: 47%; width: 8px; height: 5px; border-left: 2px solid var(--naver); border-bottom: 2px solid var(--naver); transform: translateY(-70%) rotate(-45deg); }
+.vc-chip--n { color: var(--naver); background: var(--naver-lt); border-color: var(--naver); }
 .cases-note { margin-top: 24px; font-size: 13px; color: var(--muted-lt); text-align: center; }
-.vc-review { display: none; } /* 데스크톱: 이미지 카드 / 모바일에서만 네이버 리뷰 헤더 노출 */
 
 /* ===================================================================
    AREA
@@ -464,9 +489,7 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
   .assure-item { padding: 16px 18px; }
 
   .voices-grid { gap: 12px; }
-  .vc-media { aspect-ratio: 2 / 1; }
-  .vc-body { padding: 15px 18px 17px; gap: 10px; }
-  .vc-quote { font-size: 16px; }
+  .vc-quote { font-size: 15px; padding-top: 18px; }
   .cases-note { margin-top: 16px; }
 
   .area-list { gap: 8px; }
@@ -479,47 +502,12 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
 }
 
 /* ===================================================================
-   모바일 — 9곳 한마디 네이버 리뷰 스타일
+   모바일 — 네이버 리뷰 카드 미세 조정 (구조는 전 화면 공통)
    =================================================================== */
 @media (max-width: 680px) {
-  /* ---- VOICES: 네이버 리뷰 카드 ---- */
   .voices-grid { gap: 10px; }
-  .voice-card { flex-direction: column; border-radius: 10px; box-shadow: none; }
+  .voice-card { padding: 16px 16px 18px; gap: 12px; box-shadow: none; }
   .voice-card:hover { transform: none; box-shadow: none; border-color: var(--line); }
-  .voice-card:hover .vc-img { transform: none; }
-
-  .vc-body { order: 1; padding: 14px 16px; gap: 11px; }
-  .vc-media {
-    order: 2; aspect-ratio: auto; height: 152px; margin: 0 16px 16px;
-    border-radius: 8px; background: var(--line);   /* 로딩 중 흰 박스 대신 중립 플레이스홀더 */
-  }
-  .vc-img { background: var(--line); }
-  .vc-media::after { display: none; }   /* 다크 오버레이 제거 — 사진 선명 */
-  .vc-region { display: none; }          /* 지역명은 닉네임으로 이동 */
-
-  .vc-review { display: flex; align-items: center; gap: 10px; }
-  .vc-avatar {
-    width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
-    display: grid; place-items: center; background: var(--blue-700); color: #fff;
-    font-family: var(--display); font-weight: 800; font-size: 16px; letter-spacing: -0.03em;
-  }
-  .voice-card[data-tone="b"] .vc-avatar, .voice-card[data-tone="e"] .vc-avatar, .voice-card[data-tone="h"] .vc-avatar { background: var(--blue-800); }
-  .voice-card[data-tone="c"] .vc-avatar, .voice-card[data-tone="f"] .vc-avatar, .voice-card[data-tone="i"] .vc-avatar { background: var(--blue-500); }
-  .vc-rv-id { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
-  .vc-rv-name { font-size: 14px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
-  .vc-stars { font-size: 13px; color: var(--orange); letter-spacing: 2px; line-height: 1; }
-  .vc-stars .s-off { color: var(--line); }
-  .vc-rv-date { font-size: 12px; color: var(--muted-lt); flex-shrink: 0; align-self: flex-start; letter-spacing: -0.02em; }
-
-  .vc-quote { font-size: 15px; font-weight: 400; color: var(--ink); line-height: 1.55; }
-  .vc-meta { gap: 6px; }
-  .vc-chip, .vc-chip--n {
-    color: var(--muted); background: var(--mist); border-color: var(--line);
-    border-radius: 999px; padding: 6px 12px 6px 25px; font-weight: 700; position: relative;
-  }
-  .vc-chip::before, .vc-chip--n::before {
-    content: ""; position: absolute; left: 11px; top: 48%; width: 8px; height: 5px;
-    border-left: 2px solid var(--orange); border-bottom: 2px solid var(--orange);
-    transform: translateY(-70%) rotate(-45deg);
-  }
+  .voice-card:hover .vc-photo img { transform: none; }
+  .vc-photo { aspect-ratio: auto; height: 168px; }
 }
