@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>스피드설비 홈페이지 — 마케팅 활용 보고서</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+  :root{
+    --navy:#0c2f4a; --navy-2:#103a5c; --aqua:#0fa9cc; --aqua-dk:#0b88a3; --aqua-lt:#e3f6fb;
+    --orange:#f26419; --ink:#1a2230; --muted:#5f6b7a; --muted-lt:#9aa6b4;
+    --line:#e3e8ee; --mist:#f3f6f9; --paper:#fff;
+    --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--sans);color:var(--ink);background:var(--mist);line-height:1.65;letter-spacing:-0.02em;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px;}
+
+  /* 헤더 */
+  .doc-head{background:var(--navy);color:#fff;padding:54px 0 46px;}
+  .doc-head .wrap>.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.16em;color:var(--aqua);margin-bottom:14px;}
+  .doc-head h1{font-size:clamp(26px,5vw,38px);font-weight:800;line-height:1.2;letter-spacing:-0.03em;margin-bottom:14px;}
+  .doc-head h1 em{font-style:normal;color:var(--aqua);}
+  .doc-head p{font-size:16px;color:rgba(255,255,255,0.8);max-width:680px;}
+  .doc-meta{margin-top:22px;display:flex;gap:10px 22px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,0.65);}
+  .doc-meta b{color:#fff;font-weight:700;}
+
+  /* 본문 섹션 */
+  section{padding:44px 0;}
+  .sec-label{font-size:12px;font-weight:700;letter-spacing:0.16em;color:var(--aqua-dk);margin-bottom:8px;}
+  .sec-title{font-size:24px;font-weight:800;letter-spacing:-0.03em;color:var(--navy);margin-bottom:8px;}
+  .sec-desc{font-size:15px;color:var(--muted);margin-bottom:26px;max-width:680px;}
+
+  /* 핵심 요약 박스 */
+  .lead{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--aqua);border-radius:10px;padding:22px 24px;margin-top:-26px;box-shadow:0 10px 30px rgba(12,47,74,0.06);}
+  .lead h2{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:10px;letter-spacing:-0.03em;}
+  .lead p{font-size:14.5px;color:var(--muted);}
+  .lead strong{color:var(--ink);font-weight:700;}
+
+  /* 카드 */
+  .cards{display:flex;flex-direction:column;gap:16px;}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px 24px;box-shadow:0 6px 20px rgba(12,47,74,0.05);}
+  .card-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;}
+  .num{flex-shrink:0;width:38px;height:38px;border-radius:9px;background:var(--aqua);color:#fff;display:grid;place-items:center;font-size:17px;font-weight:800;}
+  .card h3{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-0.03em;line-height:1.3;}
+  .card h3 small{display:block;font-size:12.5px;font-weight:700;color:var(--aqua-dk);letter-spacing:0;margin-top:3px;}
+  .rows{display:grid;grid-template-columns:84px 1fr;gap:8px 14px;font-size:14px;}
+  .rows dt{color:var(--muted-lt);font-weight:700;font-size:12.5px;padding-top:1px;}
+  .rows dd{color:var(--ink);}
+  .rows dd.act{color:var(--muted);}
+  .chips{margin-top:14px;display:flex;gap:7px;flex-wrap:wrap;}
+  .chip{font-size:12px;font-weight:700;color:var(--aqua-dk);background:var(--aqua-lt);border:1px solid #cdeef6;border-radius:999px;padding:5px 12px;letter-spacing:-0.02em;}
+  .chip.free{color:#1c7d3e;background:#eafaf1;border-color:#bce8cd;}
+  .chip.easy{color:var(--orange);background:#fdeee6;border-color:#fbd9c6;}
+
+  /* 로드맵 표 */
+  table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14px;}
+  th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:var(--navy);color:#fff;font-weight:700;font-size:13px;letter-spacing:-0.02em;}
+  tr:last-child td{border-bottom:0;}
+  td b{color:var(--navy);}
+  .week{white-space:nowrap;font-weight:800;color:var(--aqua-dk);}
+
+  /* 푸터 */
+  .doc-foot{background:var(--navy);color:rgba(255,255,255,0.7);padding:34px 0;font-size:13px;}
+  .doc-foot b{color:#fff;}
+  .doc-foot a{color:var(--aqua);text-decoration:none;}
+
+  .note{font-size:12.5px;color:var(--muted-lt);margin-top:18px;}
+
+  @media (max-width:560px){
+    .rows{grid-template-columns:1fr;gap:3px;}
+    .rows dt{padding-top:8px;}
+    .card-top{gap:11px;}
+  }
+  @media print{
+    body{background:#fff;}
+    .card,.lead,table{box-shadow:none;}
+    section{padding:24px 0;}
+    .doc-head,.doc-foot{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  }
+</style>
+</head>
+<body>
+
+<header class="doc-head">
+  <div class="wrap">
+    <span class="tag">MARKETING PLAYBOOK</span>
+    <h1>스피드설비 홈페이지로<br /><em>매출을 만드는</em> 마케팅 10가지</h1>
+    <p>이 홈페이지는 단순 소개 페이지가 아닙니다. 방문자 데이터를 수집·분석해 "누가, 어디서, 언제, 왜" 전화하는지 파악하고, 광고비를 전화 전환 기준으로 최적화하는 영업 도구로 쓸 수 있습니다.</p>
+    <div class="doc-meta">
+      <span>대상 · <b>스피드설비 (부산·경남 배관설비)</b></span>
+      <span>사이트 · <b>web-speed-seolbi-demo</b></span>
+      <span>작성일 · <b>2026-06-23</b></span>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:36px;">
+  <div class="wrap">
+    <div class="lead">
+      <h2>한 줄 요약</h2>
+      <p><strong>GTM(구글 태그 매니저)</strong> 하나만 심으면 코드를 다시 건드리지 않고도 방문자 행동·전화 클릭·폼 제출을 모두 추적할 수 있습니다. 여기서 나온 데이터로 <strong>광고를 "전화 1건당 비용" 기준</strong>으로 굴리는 것이 핵심입니다. 아래 10가지는 그 토대 위에서 실제로 매출을 끌어올리는 활용법입니다.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:8px;">
+  <div class="wrap">
+    <p class="sec-label">CAPABILITIES</p>
+    <h2 class="sec-title">마케팅 활용 10가지</h2>
+    <p class="sec-desc">각 항목은 "무엇을 알 수 있는가 → 그래서 무엇을 하는가 → 어떤 도구로" 순서로 정리했습니다.</p>
+
+    <div class="cards">
+
+      <!-- 1 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="num">1</span>
+          <h3>방문자 기본 분석<small>누가 · 몇 명 · 어디서 들어오나</small></h3>
+        </div>
+        <dl class="rows">
+          <dt>알 수 있는 것</dt><dd>일·주·월별 방문자 수, 신규 vs 재방문, 유입 경로(네이버·구글 검색 / 광고 / SNS / 직접입력).</dd>
+          <dt>마케팅 액션</dt><dd class="act">사람을 가장 많이 데려오는 채널에 예산을 몰아주고, 효과 없는 채널은 정리합니다.</dd>
+        </dl>
+        <div class="chips"><span class="chip">GA4 + GTM</span><span class="chip free">무료</span><span class="chip easy">난이도 낮음</span></div>
+      </article>
+
+      <!-- 2 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="num">2</span>
+          <h3>지역(시·구·동) 분석<small>어느 동네에서 보고 있나</small></h3>
+        </div>
+        <dl class="rows">
+          <dt>알 수 있는 것</dt><dd>접속자의 지역. 강서구·명지동·사하구 등 실제 수요가 몰리는 동네를 데이터로 확인.</dd>
+          <dt>마케팅 액션</dt><dd class="act">문의 많은 동네에 전단·현수막·지역 키워드 광고를 집중하고, 사이트 "서비스 지역" 문구를 그 동네 중심으로 조정.</dd>
+        </dl>
+        <div class="chips"><span class="chip">GA4 지역 리포트</span><span class="chip free">무료</span><span class="chip easy">난이도 낮음</span></div>
+      </article>
+
+      <!-- 3 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="num">3</span>
+          <h3>시간대 · 요일 분석<small>언제 접속·문의가 몰리나</small></h3>
+        </div>
+        <dl class="rows">
+          <dt>알 수 있는 것</dt><dd>시간대별·요일별 방문과 전화 클릭 분포. 새벽·주말·장마철 같은 긴급 피크를 숫자로 확인.</dd>
+          <dt>마케팅 액션</dt><dd class="act">피크 시간대에 검색광고 노출을 집중하고, 야간 상담 대기 인력을 그 시간에 배치해 놓친 전화를 줄입니다.</dd>
+        </dl>
+        <div class="chips"><span class="chip">GA4 시간 리포트</span><span class="chip free">무료</span><span class="chip easy">난이도 낮음</span></div>
+      </article>
+
+      <!-- 4 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="num">4</span>
+          <h3>유입 검색어 · 디바이스<small>어떤 말로 검색해서 들어오나</small></h3>
+        </div>
+        <dl class="rows">
+          <dt>알 수 있는 것</dt><dd>"부산 변기막힘", "하단동 하수구" 같은 실제 검색어와 모바일/PC 비율(이 업종은 대부분 모바일).</dd>
+          <dt>마케팅 액션</dt><dd class="act">실수요 검색어를 광고 키워드로 추가하고, 모바일 화면을 1순위로 최적화합니다.</dd>
+        </dl>
+        <div class="chips"><span class="chip">Search Console</span><span class="chip">GA4</span><span class="chip free">무료</span></div>
+      </article>
+
+      <!-- 5 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="num">5</span>
+          <h3>전화 클릭 전환 추적<small>진짜 성과 = 전화</small></h3>
+        </div>
+        <dl class="rows">
+          <dt>알 수 있는 것</dt><dd>"전화 즉시출동" 버튼·플로팅 전화 버튼을 누른 횟수를 전환 이벤트로 측정.</dd>
+          <dt>마케팅 액션</dt><dd class="act">방문자 수가 아니라 "전화 클릭 수"로 광고를 평가합니다. 채널별 전화 전환율로 진짜 ROI를 계산.</dd>
+        </dl>
+        <div class="chips"><span class="chip">GTM 클릭 트리거</span><span class="chip free">무료</span><span class="chip easy">핵심 권장</span></div>
+      </article>
+
+      <!-- 6 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="num">6</span>
+          <h3>카카오톡 상담 클릭 추적<small>채팅으로 오는 고객 비중</small></h3>
+        </div>
+        <dl class="rows">
+          <dt>알 수 있는 것</dt><dd>카톡 상담 버튼 클릭 수. 전화보다 채팅을 선호하는 고객 비율을 파악.</dd>
+          <dt>마케팅 액션</dt><dd class="act">채팅 유입이 많으면 카카오 채널 자동응답·상담 멘트를 강화해 전환을 끌어올립니다.</dd>
+        </dl>
+        <div class="chips"><span class="chip">GTM 클릭 트리거</span><span class="chip free">무료</span></div>
+      </article>
+
+      <!-- 7 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="num">7</span>
+          <h3>견적 폼 전환 · 리드 추적<small>리드 1건당 비용 계산</small></h3>
+        </div>
+        <dl class="rows">
+          <dt>알 수 있는 것</dt><dd>"견적·출동 신청" 폼 제출 수와, 그 리드가 어느 광고·채널에서 왔는지.</dd>
+          <dt>마케팅 액션</dt><dd class="act">리드 1건당 비용(CPL)을 산출해, 비싼 채널은 줄이고 싼 채널에 재투자합니다.</dd>
+        </dl>
+        <div class="chips"><span class="chip">GTM 폼 전환</span><span class="chip">UTM 파라미터</span><span class="chip free">무료</span></div>
+      </article>
+
+      <!-- 8 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="num">8</span>
+          <h3>스크롤 · 섹션 체류 분석<small>어디서 보고 떠나나</small></h3>
+        </div>
+        <dl class="rows">
+          <dt>알 수 있는 것</dt><dd>방문자가 후기·비용·작업과정 중 어느 섹션까지 보고 이탈하는지, 어디에 오래 머무는지.</dd>
+          <dt>마케팅 액션</dt><dd class="act">관심 높은 섹션(후기·비용)을 위로 올리고, 이탈 지점 문구를 고쳐 전화 전환율을 높입니다.</dd>
+        </dl>
+        <div class="chips"><span class="chip">GTM 스크롤 추적</span><span class="chip free">무료</span></div>
+      </article>
+
+      <!-- 9 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="num">9</span>
+          <h3>히트맵 · 세션 리플레이<small>실제 손가락 움직임 녹화</small></h3>
+        </div>
+        <dl class="rows">
+          <dt>알 수 있는 것</dt><dd>어디를 클릭·터치하는지(히트맵), 실제 방문 세션을 영상처럼 재생. 헷갈려 하는 구간을 눈으로 확인.</dd>
+          <dt>마케팅 액션</dt><dd class="act">안 눌리는 버튼·놓치는 전화 CTA를 발견해 위치·크기를 수정합니다.</dd>
+        </dl>
+        <div class="chips"><span class="chip">Microsoft Clarity</span><span class="chip free">완전 무료</span><span class="chip easy">강력 추천</span></div>
+      </article>
+
+      <!-- 10 -->
+      <article class="card">
+        <div class="card-top">
+          <span class="num">10</span>
+          <h3>검색광고 전환 연동 + 리타게팅<small>놓친 방문자 다시 잡기</small></h3>
+        </div>
+        <dl class="rows">
+          <dt>알 수 있는 것</dt><dd>광고 클릭 → 전화/폼 전환까지의 전 과정. 방문했지만 전화 안 한 사람 목록(쿠키 기반).</dd>
+          <dt>마케팅 액션</dt><dd class="act">광고를 "전화 전환" 기준으로 자동 최적화하고, 이탈 방문자에게 배너를 재노출해 회수합니다.</dd>
+        </dl>
+        <div class="chips"><span class="chip">Google Ads</span><span class="chip">Meta 픽셀</span><span class="chip">네이버 GFA</span><span class="chip easy">유료 광고 동반</span></div>
+      </article>
+
+    </div>
+    <p class="note">※ 모든 추적은 개인정보보호법·쿠키 동의 고지 범위 안에서 운영합니다. 전화번호·이름 등 개인정보는 분석 도구에 직접 전송하지 않고, 클릭·전환 같은 행동 데이터만 수집하는 것을 권장합니다.</p>
+  </div>
+</section>
+
+<section style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <p class="sec-label">ROADMAP</p>
+    <h2 class="sec-title">도입 우선순위 (3단계)</h2>
+    <p class="sec-desc">한 번에 다 하지 않습니다. 토대 → 측정 → 확장 순서로, 비용 0원 항목부터 시작합니다.</p>
+    <table>
+      <thead>
+        <tr><th>단계</th><th>설치/작업</th><th>얻는 것</th><th>비용</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="week">1단계<br />(토대)</td><td><b>GTM + GA4</b> 설치, <b>전화·카톡 클릭</b> 전환 추적(5·6), 폼 전환(7)</td><td>방문자·유입·전화 전환 데이터 확보. "광고 없이도" 현황 파악 시작.</td><td>0원</td></tr>
+        <tr><td class="week">2단계<br />(인사이트)</td><td><b>지역·시간대</b> 분석(2·3), <b>Clarity</b> 히트맵(9), 스크롤 분석(8)</td><td>어느 동네·몇 시에 수요가 몰리는지, 화면 어디서 이탈하는지 파악 → 페이지·운영 개선.</td><td>0원</td></tr>
+        <tr><td class="week">3단계<br />(확장)</td><td><b>검색광고</b> + 전환 연동, <b>리타게팅</b>(10), UTM 캠페인 관리</td><td>전화 1건당 비용 기준으로 광고 최적화, 놓친 방문자 회수. 광고비 효율 극대화.</td><td>광고비 + 운영</td></tr>
+      </tbody>
+    </table>
+    <p class="note">권장 시작점: <b>1단계(전부 무료)</b>를 먼저 깔아 2~3주 데이터를 모은 뒤, 그 숫자를 근거로 3단계 광고를 시작하면 광고비 낭비를 크게 줄일 수 있습니다.</p>
+  </div>
+</section>
+
+<footer class="doc-foot">
+  <div class="wrap">
+    <p><b>스피드설비 마케팅 활용 보고서</b> · 부산·경남 배관설비</p>
+    <p style="margin-top:6px;">대상 사이트 · <a href="https://minjunbyeon-netizen.github.io/web-speed-seolbi-demo/">web-speed-seolbi-demo</a> · 본 문서는 내부 검토용입니다.</p>
+  </div>
+</footer>
+
+</body>
+</html>
