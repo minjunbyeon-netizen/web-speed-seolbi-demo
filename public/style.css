@@ -284,7 +284,22 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
 .voice-card:hover .vc-photo img { transform: scale(1.05); }
 
 /* 네이버 감정 키워드 칩 (체크 표시) */
-.vc-meta { display: flex; gap: 7px; flex-wrap: wrap; margin-top: auto; }
+.vc-meta { display: flex; gap: 7px; flex-wrap: wrap; }
+
+/* 도움돼요 반응 바 */
+.vc-foot { display: flex; align-items: center; gap: 12px; padding-top: 13px; border-top: 1px solid var(--line); }
+.vc-like { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; cursor: pointer; letter-spacing: -0.02em; transition: color .15s ease, border-color .15s ease, background-color .15s ease; }
+.vc-like:hover { color: var(--naver); border-color: var(--naver); background: var(--naver-lt); }
+.vc-like svg { width: 14px; height: 14px; }
+.vc-like b { color: var(--ink); font-weight: 800; margin-left: 1px; }
+
+/* 사장님 답글 */
+.vc-reply { display: flex; gap: 10px; background: var(--mist); border-radius: 8px; padding: 12px 14px; }
+.vc-reply-av { width: 27px; height: 27px; border-radius: 50%; background: var(--blue-900); color: #fff; display: grid; place-items: center; font-size: 11px; font-weight: 800; flex-shrink: 0; font-family: var(--display); letter-spacing: -0.03em; }
+.vc-reply-bd { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.vc-reply-id { font-size: 12px; font-weight: 700; color: var(--blue-900); letter-spacing: -0.02em; }
+.vc-reply-id span { color: var(--muted-lt); font-weight: 400; margin-left: 6px; }
+.vc-reply p { font-size: 12.5px; color: var(--muted); line-height: 1.55; letter-spacing: -0.02em; margin: 0; word-break: keep-all; }
 .vc-chip { font-size: 12px; font-weight: 700; color: var(--muted); background: var(--mist); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px 6px 26px; letter-spacing: -0.02em; white-space: nowrap; position: relative; }
 .vc-chip::before { content: ""; position: absolute; left: 11px; top: 47%; width: 8px; height: 5px; border-left: 2px solid var(--naver); border-bottom: 2px solid var(--naver); transform: translateY(-70%) rotate(-45deg); }
 .vc-chip--n { color: var(--naver); background: var(--naver-lt); border-color: var(--naver); }
