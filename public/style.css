@@ -103,7 +103,11 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
    HERO (full-bleed image)
    =================================================================== */
 .hero { position: relative; background: var(--blue-900); color: #fff; }
-.hero-banner { width: 100%; height: auto; display: block; }
+.hero-banner { width: 100%; height: auto; display: block; margin: 0 auto; }
+@media (min-width: 681px) {
+  .hero { padding-top: 18px; }
+  .hero-banner { max-width: 75%; }   /* 데스크톱: 화면 꽉 참 완화 — 75%로 축소·중앙 */
+}
 .hero-cta { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 24px var(--pad-x) 30px; }
 .hero-cta-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 
