@@ -45,6 +45,17 @@
     revealTargets.forEach(function (el) { el.classList.add("in"); });
   }
 
+  /* ---------- 푸터 아코디언: 데스크톱 펼침 / 모바일 접힘 ---------- */
+  var footGroups = document.querySelectorAll(".foot-group");
+  var footMq = window.matchMedia("(min-width: 681px)");
+  function syncFooter() {
+    var desktop = footMq.matches;
+    footGroups.forEach(function (d) { d.open = desktop; });
+  }
+  syncFooter();
+  if (footMq.addEventListener) footMq.addEventListener("change", syncFooter);
+  else window.addEventListener("resize", syncFooter);
+
   /* ---------- 통계 카운트업 ---------- */
   var counters = document.querySelectorAll(".stat strong[data-count]");
   function runCount(el) {
