@@ -102,29 +102,10 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
 /* ===================================================================
    HERO (full-bleed image)
    =================================================================== */
-.hero { position: relative; color: #fff; padding: 132px 0 120px; overflow: hidden; }
-.hero-bg {
-  position: absolute; inset: 0; background-size: cover; background-position: center;
-  transform: scale(1.05); z-index: 0;
-}
-.hero-overlay {
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(90deg, rgba(8,28,44,0.94) 0%, rgba(8,28,44,0.82) 45%, rgba(8,28,44,0.55) 100%);
-}
-.hero-inner { position: relative; z-index: 2; max-width: 760px; }
-.eyebrow { font-size: 14px; letter-spacing: 0.04em; color: #ffb284; font-weight: 700; margin-bottom: 22px; }
-.hero-title { font-family: var(--display); font-size: clamp(40px, 7.5vw, 78px); line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 24px; font-weight: 900; }
-.hero-title em { font-style: normal; color: var(--orange); }
-.hero-sub { font-size: 18px; color: rgba(255,255,255,0.86); margin-bottom: 36px; line-height: 1.6; }
-.hero-sub em { font-style: normal; color: #ffb284; font-weight: 700; }
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 36px; }
-.hero-badges { display: flex; gap: 14px 26px; flex-wrap: wrap; }
-.hero-badges li { font-size: 15px; color: rgba(255,255,255,0.9); padding-left: 24px; position: relative; font-weight: 400; }
-.hero-badges li.hero-badge-lead { font-weight: 700; color: #fff; }
-.hero-badges li::before {
-  content: ""; position: absolute; left: 0; top: 9px; width: 12px; height: 7px;
-  border-left: 2px solid var(--orange); border-bottom: 2px solid var(--orange); transform: rotate(-45deg);
-}
+.hero { position: relative; background: var(--blue-900); color: #fff; }
+.hero-banner { width: 100%; height: auto; display: block; }
+.hero-cta { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 24px var(--pad-x) 30px; }
+.hero-cta-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 
 /* ===================================================================
    FOMO — 실시간 출동 토스트 + 히어로 희소성 (데모 가상 데이터)
@@ -461,9 +442,8 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
   .card-grid, .equip-grid, .voices-grid { grid-template-columns: 1fr; }
   .contact-form { grid-template-columns: 1fr; }
   .area-list { grid-template-columns: 1fr; }
-  .hero { padding: 84px 0 72px; }
-  .hero-overlay { background: linear-gradient(180deg, rgba(8,28,44,0.86), rgba(8,28,44,0.92)); }
-  .hero-actions .btn { width: 100%; }
+  .hero-cta-btns { width: 100%; flex-direction: column; }
+  .hero-cta-btns .btn { width: 100%; }
   .assure-grid { grid-template-columns: 1fr; }
   .float-stack { display: none; }
   .float-bar { display: flex; }
@@ -485,14 +465,8 @@ h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.2; font-weight: 800; }
   .section-head h2 { margin: 8px 0 8px; }
   .section-desc { font-size: 15px; }
 
-  .hero { padding: 52px 0 44px; }
-  .hero-title { margin-bottom: 14px; }
-  .hero-sub { margin-bottom: 22px; font-size: 16px; }
-  .hero-actions { gap: 10px; margin-bottom: 20px; }
-  .hero-badges { gap: 8px 18px; }
-  .hero-badges li { font-size: 14px; }
-  .hero-scarcity { margin-top: 14px; }
-  .eyebrow { margin-bottom: 14px; }
+  .hero-cta { padding: 16px var(--pad-x) 22px; gap: 12px; }
+  .hero-scarcity { margin-top: 4px; }
   .btn { height: 50px; }
   .btn-big { height: 54px; font-size: 16px; }
 
